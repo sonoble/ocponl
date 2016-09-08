@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Faqs on Open Network Linux</title>
+    <link>http://ocp.opennetlinux.org/faq/</link>
+    <description>Recent content in Faqs on Open Network Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Jul 2016 00:11:02 +0100</lastBuildDate>
+    <atom:link href="http://ocp.opennetlinux.org/faq/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Open Network Linux - Frequently Asked Questions</title>
+      <link>http://ocp.opennetlinux.org/faq/</link>
+      <pubDate>Tue, 19 Jul 2016 00:11:02 +0100</pubDate>
+      
+      <guid>http://ocp.opennetlinux.org/faq/</guid>
+      <description>
+
+&lt;h2 id=&#34;what-are-bare-metal-switches&#34;&gt;What are &amp;ldquo;Bare Metal Switches&amp;rdquo;?&lt;/h2&gt;
+
+&lt;p&gt;Bare Metal refers to the switches where the software and hardware are sold separately, that is, you can buy just the &amp;ldquo;bare metal&amp;rdquo;. In other words, the end-user is free to load an operating system of their choice. ONL is an open source distribution of Linux for Bare Metal switches.&lt;/p&gt;
+
+&lt;h2 id=&#34;why-can-t-bare-metal-switches-use-an-existing-well-known-distribution-e-g-redhat-slackware-ubuntu-debian-etc&#34;&gt;Why can&amp;rsquo;t Bare Metal switches use an existing well-known distribution, e.g., RedHat, Slackware, Ubuntu, Debian, etc.&lt;/h2&gt;
+
+&lt;p&gt;While ONL is based off of Debian Linux, it adds functionality specific to bare metal that&amp;rsquo;s not included in existing traditional distributions. Relative to a standard server, bare metal switches have expanded infrastructure for their unique hardware including larger I2C buses, GPIO&amp;rsquo;s, SFP&amp;rsquo;s, LEDs, fans and temperature sensors. Additionally, while many of these components are roughly standardized in the server world, for a variety of reasons, switch vendors do not always use the server-comparable components. As a result, ONL ships with a number of additional drivers to support this collection of hardware. Additionally, there are a number of nicities that make working with a headless switch easier including network booting, cross-compilation workspace, overlayfs tricks to optimize flash writes, and a large collection of build utilities to leverage the ONIE install environment.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-does-onl-compare-to-existing-commercial-bare-metal-operating-systems-e-g-big-switch-network-s-switchlight-cumulus-network-s-cumulus-linux-broadcom-s-fastpath&#34;&gt;How does ONL compare to existing commercial bare metal operating systems, e.g., Big Switch Network&amp;rsquo;s SwitchLight, Cumulus Network&amp;rsquo;s Cumulus Linux, Broadcom&amp;rsquo;s FastPath.&lt;/h2&gt;
+
+&lt;p&gt;ONL is a base-level operating system and only includes example packet forwarding code. The main expectation is that you or other projects will write their own packet forwarding code. ONL&amp;rsquo;s goal is two fold. First, to become a development platform for tinkers and DYI types to build their own forwarding applications, and second to be useful component for building full commercial solutions on top of bare metal switches. For example, Big Switch Network&amp;rsquo;s SwitchLight OS is based on ONL. As such, the expectation is that someone deploying ONL will build or deploy their own packet forwarding application on top. Additionally, we expect that third parties will contribute binary-only forwarding applications (e.g., a traditional L2/L3 stack, an OpenFlow agent, something experimental, etc.) as time goes on. For example, the Open Route Cache or &amp;lsquo;orc&amp;rsquo; code enables traditional L3 routing, and the Indigo binary works as a OpenFlow agent.&lt;/p&gt;
+
+&lt;h2 id=&#34;is-there-any-open-source-or-at-least-open-sdks-for-managing-the-packet-forwarding-hardware&#34;&gt;Is there any open source (or at least open) SDKs for managing the packet forwarding hardware?&lt;/h2&gt;
+
+&lt;p&gt;Yes &amp;ndash; you need to match the SDK to the underlying forwarding hardware. Some of these projects are changing rapidly and some are announcements where the code is expected to come shortly. An incomplete list of SDKs are that available include:
+    - Broadcom OF-DPA SDK: (actual code!) &lt;a href=&#34;https://github.com/Broadcom-Switch/of-dpa/&#34;&gt;https://github.com/Broadcom-Switch/of-dpa/&lt;/a&gt;
+    - Broadcom OpenNSL SDK: (actual code!) &lt;a href=&#34;https://github.com/Broadcom-Switch/OpenNSL/&#34;&gt;https://github.com/Broadcom-Switch/OpenNSL/&lt;/a&gt;
+    - Mellanox Open Ethernet: (code coming soon) &lt;a href=&#34;http://www.mellanox.com/openethernet/&#34;&gt;http://www.mellanox.com/openethernet/&lt;/a&gt;
+    - Centec&amp;rsquo;s Lantern Project: (code needs link) &lt;a href=&#34;http://www.centecnetworks.com/en/NewsView.asp?ID=274&amp;amp;SortID=48#sthash.lZZdT6gK.dpbs&#34;&gt;http://www.centecnetworks.com/en/NewsView.asp?ID=274&amp;amp;SortID=48#sthash.lZZdT6gK.dpbs&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;onie-is-a-boot-loader-and-onl-has-its-own-boot-loader-do-they-compete-conflict-with-each-other&#34;&gt;ONIE is a boot loader and ONL has its own boot loader &amp;ndash; do they compete/conflict with each other?&lt;/h2&gt;
+
+&lt;p&gt;No they do not conflict and are in fact very complementary. Using the ONIE terminology, Open Network Linux is a networking operating system (NOS) that ONIE installs. Some of the confusion results because independent of ONIE, ONL has a two phase &lt;a href=&#34;http://opennetlinux.org/docs/bootprocess&#34;&gt;Boot Process&lt;/a&gt;, the first part of which we refer to as a boot loader. ONIE is also refered to as a boot loader and thus the confusion. ONIE is (from the name) an install environment, which is to say it is only used to install a different, full featured OS. ONIE is only run/invoked when installing or uninstalling a new operating system &amp;ndash; in normal operating, the ONIE code is not run. ONL&amp;rsquo;s boot loader is used to grab and cache the actual ONL final SWitch Image (.SWI). Compared to ONIE, the ONL loader initializes more hardware, has more drivers, and is intended to be a moderately useful OS in case of emergency. ONIE is intentionally stripped down to fit into the comparably small flash memory on the switch: the ONIE image is less than 4MB where the ONL boot loader image is ~64MB. A complete description of the &lt;a href=&#34;http://opennetlinux.org/docs/bootprocess&#34;&gt;boot process&lt;/a&gt; is available in the online documentation.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-does-open-network-linux-onl-differ-from-the-open-dataplane-odp-project-they-look-fairly-similar&#34;&gt;How does Open Network Linux (ONL) differ from the Open Dataplane (ODP) project - they look fairly similar?&lt;/h2&gt;
+
+&lt;p&gt;Both projects are trying to provide useful software abstractions and tooling on top of networking hardware so there are definite similarities. However, the target network hardware differs: ONL primarily focuses on higher-end (e.g., 1+ Tb/s aggregate throughput), very customized switching ASICs (e.g., Broadcom Trident2, Intel/Fulcrum Alta, Mellanox Switch2, etc.) where as ODP focuses on low-to-mid range more generally programmable hardware (e.g., from x86 to NPUs to general purpose SoC designs with hardware acceleration features for networking). While ideally there would be a single common API for all classes of networking hardware, the current reality is that the programming paradigms for these devices are very different and even the very flexible ODP API does not readily apply to the more complex ASICs used in ONL devices. ONL will continue to follow the ODP community (and vice versa!) as the technologies evolve, looking for synergies and points of co-operation.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-do-i-run-the-onie-uninstall-reinstall-rescue-upgrade-command&#34;&gt;How do I run the ONIE {uninstall,reinstall,rescue,upgrade} command?&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;- Update ONIE -- fw_setenv onie_boot_reason update &amp;amp;&amp;amp; reboot
+- Re-install NOS -- fw_setenv nos_bootcmd echo &amp;amp;&amp;amp; reboot
+- Uninstall NOS -- fw_setenv onie_boot_reason uninstall
+- Rescue mode -- fw_setenv onie_boot_reason rescue
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;what-routing-features-does-open-route-cache-support&#34;&gt;What Routing Features Does Open Route Cache Support?&lt;/h2&gt;
+
+&lt;p&gt;Open Route Cache (&amp;ldquo;ORC&amp;rdquo;) provides the glue code to hook a routing stack (e.g., &lt;a href=&#34;https://www.opensourcerouting.org/&#34;&gt;Quagga&lt;/a&gt;) to the underlying packet forwarding hardware. Currently, only basic IPv4 unicast forwarding. Support for IPv6, ECMP, multicast, and other advanced features are possible but do not exist at this time.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

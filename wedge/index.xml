@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wedges on Open Network Linux</title>
+    <link>http://ocp.opennetlinux.org/wedge/</link>
+    <description>Recent content in Wedges on Open Network Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Jul 2016 00:11:02 +0100</lastBuildDate>
+    <atom:link href="http://ocp.opennetlinux.org/wedge/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Open Network Linux - Getting Started With The Wedge</title>
+      <link>http://ocp.opennetlinux.org/wedge/</link>
+      <pubDate>Tue, 19 Jul 2016 00:11:02 +0100</pubDate>
+      
+      <guid>http://ocp.opennetlinux.org/wedge/</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;ONL Supports the [&lt;a href=&#34;http://www.edge-core.com/productsInfo.php?cls=1&amp;amp;cls2=7&amp;amp;cls3=57&amp;amp;id=110&#34;&gt;Wedge 40&lt;/a&gt;] running the Facebook [&lt;a href=&#34;https://github.com/facebook/fboss&#34;&gt;FBOSS&lt;/a&gt;] fowarding agent and [&lt;a href=&#34;http://www.snaproute.com/&#34;&gt;Snaproute&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;ONL Supports the Wedge 100 running [&lt;a href=&#34;http://www.snaproute.com/&#34;&gt;Snaproute&lt;/a&gt;].&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;installation-instructions&#34;&gt;Installation Instructions&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;If your Wedge does not have ONIE, you will need to install it to install ONL, it can be download from here:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Wedge 40 - &lt;a href=&#34;http://opennetlinux.org/binaries/accton-wedge/onie-recovery-wedge.iso&#34;&gt;ONIE for Wedge 40&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Wedge 100 - &lt;a href=&#34;http://opennetlinux.org/binaries/accton-wedge/onie-recovery-x86-64-facebook-wedge100-r0.iso&#34;&gt;ONIE for Wedge 100&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Burn the ONIE .iso to a USB&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Assuming that your USB is /dev/sdb, under linux you would do: dd if=onie-recovery-x86_64-accton_wedge_x16-r0.iso of=/dev/sdb bs=10M&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Follow the directions in &lt;a href=&#34;https://github.com/opencomputeproject/OpenNetworkLinux/blob/master/docs/GettingStartedWedge.md&#34;&gt;Wedge Installation Guide&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;video-tutorials&#34;&gt;Video Tutorials&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Installing ONIE
+&lt;br&gt;
+&lt;iframe src=&#34;//player.vimeo.com/video/146086436&#34; width=&#34;500&#34; height=&#34;281&#34; frame border=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;.&lt;/li&gt;
+&lt;li&gt;Installing ONL
+&lt;br&gt;
+&lt;iframe src=&#34;//player.vimeo.com/video/146086486&#34; width=&#34;500&#34; height=&#34;281&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;&lt;p&gt;.&lt;/li&gt;
+&lt;li&gt;Running FBOSS
+&lt;br&gt;
+&lt;iframe src=&#34;//player.vimeo.com/video/146086434&#34; width=&#34;500&#34; height=&#34;281&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

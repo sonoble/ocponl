@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <title>Open Network Linux - Getting started - Open Network Linux</title>
+    <meta name="generator" content="Hugo 0.16" />
+
+    
+    <meta name="description" content="A material design theme for documentations.">
+    
+    <link rel="canonical" href="http://ocp.opennetlinux.org/getting-started/">
+    
+    <meta name="author" content="Digitalcraftsman">
+    
+
+    <meta property="og:url" content="http://ocp.opennetlinux.org/getting-started/">
+    <meta property="og:title" content="Open Network Linux">
+    <meta property="og:image" content="http://ocp.opennetlinux.org/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="Open Network Linux">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="http://ocp.opennetlinux.org/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="http://ocp.opennetlinux.org/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('http://ocp.opennetlinux.org/fonts/icon.eot?52m981');
+        src: url('http://ocp.opennetlinux.org/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+             url('http://ocp.opennetlinux.org/fonts/icon.woff?52m981')
+               format('woff'),
+             url('http://ocp.opennetlinux.org/fonts/icon.ttf?52m981')
+               format('truetype'),
+             url('http://ocp.opennetlinux.org/fonts/icon.svg?52m981#icon')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="http://ocp.opennetlinux.org/stylesheets/application.css">
+    <link rel="stylesheet" href="http://ocp.opennetlinux.org/stylesheets/temporary.css">
+    <link rel="stylesheet" href="http://ocp.opennetlinux.org/stylesheets/palettes.css">
+    <link rel="stylesheet" href="http://ocp.opennetlinux.org/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu%2bMono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="http://ocp.opennetlinux.org/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-red palette-accent-light green">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Open Network Linux - Getting started
+      </div>
+    </div>
+
+    
+    <div class="button button-twitter" role="button" aria-label="Twitter">
+       <a href="https://twitter.com/opennetlinux" title="@opennetlinux on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
+    </div>
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/opennetworklinux" title="@opennetworklinux on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://github.com/opencomputeproject/OpenNetworkLinux" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="http://ocp.opennetlinux.org/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>Open Network Linux <span class="version">2.0.0</span></strong>
+        
+          <br>
+          OpenNetworkLinux
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="http://opennetlinux.org/binaries" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/opencomputeproject/OpenNetworkLinux/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Home" href="http://ocp.opennetlinux.org/">
+	
+	Home
+</a>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Download Binaries" href="http://opennetlinux.org/binaries/">
+	
+	Download Binaries
+</a>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a class="current" title="Getting started" href="http://ocp.opennetlinux.org/getting-started/">
+	
+	Getting started
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="FAQ" href="http://ocp.opennetlinux.org/faq/">
+	
+	FAQ
+</a>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="http://ocp.opennetlinux.org/community/">
+	
+	Community
+</a>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Blog" href="http://ocp.opennetlinux.org/blog/">
+	
+	Blog
+</a>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Wedge" href="http://ocp.opennetlinux.org/wedge/">
+	
+	Wedge
+</a>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="License" href="http://ocp.opennetlinux.org/license/">
+	
+	License
+</a>
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+          <li>
+            <a href="https://twitter.com/opennetlinux" target="_blank" title="@opennetlinux on Twitter">
+              @opennetlinux on Twitter
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://github.com/opennetworklinux" target="_blank" title="@opennetworklinux on GitHub">
+              @opennetworklinux on GitHub
+            </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Open Network Linux - Getting started </h1>
+
+			
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>To install and run ONL you need is an ONL Compatible switch (see
+<a href="http://opennetlinux.org/hcl)">http://opennetlinux.org/hcl)</a> and the ONL installer binary.  Every
+ONL compatible switch ships with the ONIE installer environment installed
+which gives you a multitude of ways of getting ONL installed on your switch.</p>
+
+<p>We document the easiest ways here (manual install via console and NFS)
+but the <a href="http://onie.org">http://onie.org</a> website contains a variety of installation
+methods including via USB, over the network, and even via ssh.</p>
+
+<p>The resulting installation has a default account (&ldquo;root&rdquo;) with a default
+password (&ldquo;onl&rdquo;).  The network interface is disabled by default so that
+you can change the root password before the system comes up.</p>
+
+<h2 id="onl-manual-install">ONL Manual Install</h2>
+
+<p>1) Attach a serial terminal to the switch
+2) Boot switch and hit return to go to ONIE&rdquo;s interactive mode
+    2a) You must wait until after uboot has finished loading; if you
+        accidentally interupt uboot first, just run <code>boot</code> to continue
+        booting into ONIE
+3) Download the ONL installer from <a href="http://opennetlinux.org">http://opennetlinux.org</a> and run it by hand</p>
+
+<p>Expected Serial Console Output (from an QuantaMesh LB9, other switches ouput wil
+l vary):</p>
+
+<pre><code>    U-Boot 2010.12 (Oct 08 2013 - 17:11:37)
+
+    CPU:   8541, Version: 1.1, (0x80720011)
+    Core:  Unknown, Version: 2.0, (0x80200020)
+    Clock Configuration:
+           CPU0:825  MHz,
+           CCB:330  MHz,
+           DDR:165  MHz (330 MT/s data rate), LBC:41.250 MHz
+    CPM:   330 MHz
+    L1:    D-cache 32 kB enabled
+           I-cache 32 kB enabled
+    I2C:   ready
+    DRAM:  Detected UDIMM TS128MSD64V3A
+    Detected UDIMM(s)
+    DDR: 1 GiB (DDR1, 64-bit, CL=2.5, ECC off)
+    FLASH: 64 MiB
+    L2:    256 KB enabled
+
+    LB9 U-Boot
+      Product Name          : LB9
+      Model Name            : QUANTA LB9
+      Serial Number         : QTFCA63280001
+      Part Number           : 1LB9BZZ0STQ
+      Label Revision Number : 1
+      Hardware Version      : 1.0
+      Platform Version      : 0xb901
+      Release Date          : 2013/7/5
+      MAC Address           : 08:9e:01:ce:bd:2d
+    Set ethaddr MAC address = 08:9e:01:ce:bd:2d
+    In:    serial
+    Out:   serial
+    Err:   serial
+    Net:   TSEC0: PHY is Broadcom BCM5461S (2060c1)
+    TSEC0
+    IDE:   Bus 0: OK
+      Device 0: Model: 4GB CompactFlash Card Firm: Ver6.04J Ser#: CDE207331D0100001484
+                Type: Hard Disk
+                Capacity: 3811.9 MB = 3.7 GB (7806960 x 512)
+    Hit any key to stop autoboot:  0
+    ## Error: &quot;nos_bootcmd&quot; not defined
+    Loading Open Network Install Environment ...
+    Platform: powerpc-quanta_lb9-r0
+    Version : 1.5.2-20131008154633
+    WARNING: adjusting available memory to 30000000
+    ## Booting kernel from Legacy Image at 04000000 ...
+       Image Name:   quanta_lb9-r0
+       Image Type:   PowerPC Linux Multi-File Image (gzip compressed)
+       Data Size:    3479390 Bytes = 3.3 MiB
+       Load Address: 00000000
+       Entry Point:  00000000
+       Contents:
+          Image 0: 2762740 Bytes = 2.6 MiB
+          Image 1: 707380 Bytes = 690.8 KiB
+          Image 2: 9254 Bytes = 9 KiB
+       Verifying Checksum ... OK
+    ## Loading init Ramdisk from multi component Legacy Image at 04000000 ...
+    ## Flattened Device Tree from multi component Image at 04000000
+       Booting using the fdt at 0x434f378
+       Uncompressing Multi-File Image ... OK
+       Loading Ramdisk to 2ff53000, end 2ffffb34 ... OK
+       Loading Device Tree to 03ffa000, end 03fff425 ... OK
+    Cannot reserve gpages without hugetlb enabled
+    setup_arch: bootmem
+    quanta_lb9_setup_arch()
+    arch: exit
+
+    ONIE: Using DHCPv4 addr: eth0: 10.7.1.10 / 255.254.0.0
+    discover: installer mode detected.  Running installer.
+
+    Please press Enter to activate this console. ONIE: Using DHCPv4 addr: eth0: 10.7.1.10 / 255.254.0.0
+    ONIE: Starting ONIE Service Discovery
+
+    To check the install status inspect /var/log/onie.log.
+    Try this:  tail -f /var/log/onie.log
+</code></pre>
+
+<p>Now press RETURN here to jump into ONIE&rdquo;s manual installer mode.  You should se e:</p>
+
+<pre><code>    ** Installer Mode Enabled **
+
+    ONIE:/ #
+</code></pre>
+
+<p>Then simply download the latest ONL installer for the appropriate architecture (powerpc or amd64) from the website and run it.</p>
+
+<pre><code>    ONIE:/ # install_url http://opennetlinux.org/binaries/latest-$ARCH.installer
+
+    Connecting to opennetlinux.org (107.170.237.53:80)
+    Open Network Installer running under ONIE.
+    Installer Version: Open Network Linux e148b7a (powerpc.all,2014.05.21.18.57,e148b7a90131c07eb8d49f74316baf8f2aae92c6)
+    Detected platform: powerpc-quanta-lb9-r0
+    Installing in standalone mode.
+    Unpacking Open Network Linux installer files...
+    onl.powerpc-as4600-54t.loader
+    onl.powerpc-as5600-52x.loader
+    ...
+</code></pre>
+
+<p>Note:</p>
+
+<p>1) If there is different OS(other than ONL) running on the switch.
+Then halt the booting process at U-boot mode, Then check for the ONIE
+details in the environment(=&gt; printenv). Open the ONIE in rescue mode,
+while ONIE has many different installation modes,
+we recommend the rescue mode for doing a manual (read: via console)
+because it disables the automatic ONIE server discovery.
+Then run (=&gt; run onie_rescue) command to take you to the ONIE environment.</p>
+
+<p>2) For development purpose, to load freshly build ONL installer from directly ON
+IE.
+Run a http server from the build machine (example:python -m SimpleHTTPServer 800
+0) and access it as,</p>
+
+<pre><code>example: ONIE:/ # install_url http://buildmachineIPAddress:/path/to/directory/onl-09b7bba-powerpc-all.2016.02.05.05.17.installer # update for specific file/date/build
+</code></pre>
+
+<p>Also, you can use install via scp with two steps,</p>
+
+<pre><code>   example: ONIE:/ # scp [username]@buildmachineIPAddress:/path/to/directory/onl-09b7bba-powerpc-all.2016.02.05.05.17.installer  ONL.installer # update for specific file/date/build
+            ONIE:/ # sh ONL.installer
+</code></pre>
+
+<h2 id="onl-rc-boot-and-persistant-storage">ONL rc.boot and persistant storage</h2>
+
+<p>Given that the default installation of ONL does not persist files across
+reboots (this is intentional &ndash; flash disks should not be written to
+as often as spinning disks), it is sometimes useful to have a normally
+writable, larger disk available for the switch. For this ONL has the concept
+of the /mnt/onl/data directory and the ability to use rc.boot scripts.</p>
+
+<p>To persist and setup programs:</p>
+
+<p>1) Run the ONL installer normally (e.g., via the manual mode per above) so that the ONL loader is installed.</p>
+
+<p>2) Edit /mnt/onl/data/rc.boot and insert the necessary commands</p>
+
+<pre><code> example: # cat /mnt/onl/data/rc.boot 
+          #!/bin/sh
+          dpkg -i /mnt/onl/data/package.deb
+</code></pre>
+
+<p>3) reboot and confirm that commands are executing correctly:</p>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2016 Released under the MIT license &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="http://ocp.opennetlinux.org/faq/" title="Open Network Linux - Frequently Asked Questions">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Open Network Linux - Frequently Asked Questions
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="http://ocp.opennetlinux.org/community/" title="Open Network Linux - Community">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Open Network Linux - Community
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'http:\/\/ocp.opennetlinux.org\/';
+      var repo_id  = 'OpenNetworkLinux';
+    
+    </script>
+
+    <script src="http://ocp.opennetlinux.org/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+            
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+        
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//gohugo.io/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

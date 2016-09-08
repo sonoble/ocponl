@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Network Linux</title>
+    <link>http://ocp.opennetlinux.org/</link>
+    <description>Recent content on Open Network Linux</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Jun 2016 21:07:13 +0100</lastBuildDate>
+    <atom:link href="http://ocp.opennetlinux.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Open Network Linux</title>
+      <link>http://ocp.opennetlinux.org/</link>
+      <pubDate>Wed, 08 Jun 2016 21:07:13 +0100</pubDate>
+      
+      <guid>http://ocp.opennetlinux.org/</guid>
+      <description>
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&#34;images/logo.png&#34; width=&#34;400&#34;&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;open-network-linux-http-opennetlinux-org-is-a-linux-distribution-for-bare-metal-switches-that-is-network-forwarding-devices-built-from-commodity-components-onl-uses-onie-http-onie-github-io-onie-to-install-onto-on-board-flash-memory-open-network-linux-is-a-part-of-the-open-compute-project-http-opencompute-org-networking-and-is-a-component-in-a-growing-collection-of-open-source-and-commercial-projects&#34;&gt;&lt;a href=&#34;http://opennetlinux.org/#&#34;&gt;Open Network Linux&lt;/a&gt; is a Linux distribution for &amp;ldquo;bare metal&amp;rdquo; switches, that is, network forwarding devices built from commodity components. ONL uses &lt;a href=&#34;http://onie.github.io/onie/&#34;&gt;ONIE&lt;/a&gt; to install onto on-board flash memory. Open Network Linux is a part of the &lt;a href=&#34;http://opencompute.org/networking&#34;&gt;Open Compute Project&lt;/a&gt; and is a component in a growing collection of open source and commercial projects.&lt;/h1&gt;
+
+&lt;h2 id=&#34;packet-forwarding&#34;&gt;Packet Forwarding&lt;/h2&gt;
+
+&lt;h3 id=&#34;open-network-linux-supports-multiple-switch-fabric-apis-https-opennetlinux-org-forwarding-including-of-dpa-https-github-com-broadcom-switch-of-dpa-opennsl-https-github-com-broadcom-switch-opennsl-and-sai-https-github-com-opencomputeproject-sai-specific-information-about-hardware-support-for-the-different-apis-can-be-found-in-the-hcl-https-opennetlinux-org-hcl&#34;&gt;Open Network Linux supports multiple &lt;a href=&#34;https://opennetlinux.org/forwarding&#34;&gt;switch fabric APIs&lt;/a&gt; including: &lt;a href=&#34;https://github.com/Broadcom-Switch/of-dpa&#34;&gt;OF-DPA&lt;/a&gt;, &lt;a href=&#34;https://github.com/Broadcom-Switch/OpenNSL&#34;&gt;OpenNSL&lt;/a&gt; and &lt;a href=&#34;https://github.com/opencomputeproject/SAI&#34;&gt;SAI&lt;/a&gt;. Specific information about hardware support for the different APIs can be found in the &lt;a href=&#34;https://opennetlinux.org/hcl&#34;&gt;HCL&lt;/a&gt; &lt;/h3&gt;
+
+&lt;h3 id=&#34;open-network-linux-is-compatible-with-most-forwarding-agents-https-opennetlinux-org-forwarding-including-quagga-https-www-opensourcerouting-org-bird-http-bird-network-cz-facebook-fboss-https-github-com-facebook-fboss-and-azure-sonic-http-azure-github-io-sonic&#34;&gt;Open Network Linux is compatible with most &lt;a href=&#34;https://opennetlinux.org/forwarding&#34;&gt;forwarding agents&lt;/a&gt; including: &lt;a href=&#34;https://www.opensourcerouting.org/&#34;&gt;Quagga&lt;/a&gt;, &lt;a href=&#34;http://bird.network.cz/&#34;&gt;BIRD&lt;/a&gt;, &lt;a href=&#34;https://github.com/facebook/fboss&#34;&gt;Facebook FBOSS&lt;/a&gt; and &lt;a href=&#34;http://azure.github.io/SONiC/&#34;&gt;Azure SONiC&lt;/a&gt;.&lt;/h3&gt;
+
+&lt;hr /&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Open Network Linux - Frequently Asked Questions</title>
+      <link>http://ocp.opennetlinux.org/faq/</link>
+      <pubDate>Tue, 19 Jul 2016 00:11:02 +0100</pubDate>
+      
+      <guid>http://ocp.opennetlinux.org/faq/</guid>
+      <description>
+
+&lt;h2 id=&#34;what-are-bare-metal-switches&#34;&gt;What are &amp;ldquo;Bare Metal Switches&amp;rdquo;?&lt;/h2&gt;
+
+&lt;p&gt;Bare Metal refers to the switches where the software and hardware are sold separately, that is, you can buy just the &amp;ldquo;bare metal&amp;rdquo;. In other words, the end-user is free to load an operating system of their choice. ONL is an open source distribution of Linux for Bare Metal switches.&lt;/p&gt;
+
+&lt;h2 id=&#34;why-can-t-bare-metal-switches-use-an-existing-well-known-distribution-e-g-redhat-slackware-ubuntu-debian-etc&#34;&gt;Why can&amp;rsquo;t Bare Metal switches use an existing well-known distribution, e.g., RedHat, Slackware, Ubuntu, Debian, etc.&lt;/h2&gt;
+
+&lt;p&gt;While ONL is based off of Debian Linux, it adds functionality specific to bare metal that&amp;rsquo;s not included in existing traditional distributions. Relative to a standard server, bare metal switches have expanded infrastructure for their unique hardware including larger I2C buses, GPIO&amp;rsquo;s, SFP&amp;rsquo;s, LEDs, fans and temperature sensors. Additionally, while many of these components are roughly standardized in the server world, for a variety of reasons, switch vendors do not always use the server-comparable components. As a result, ONL ships with a number of additional drivers to support this collection of hardware. Additionally, there are a number of nicities that make working with a headless switch easier including network booting, cross-compilation workspace, overlayfs tricks to optimize flash writes, and a large collection of build utilities to leverage the ONIE install environment.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-does-onl-compare-to-existing-commercial-bare-metal-operating-systems-e-g-big-switch-network-s-switchlight-cumulus-network-s-cumulus-linux-broadcom-s-fastpath&#34;&gt;How does ONL compare to existing commercial bare metal operating systems, e.g., Big Switch Network&amp;rsquo;s SwitchLight, Cumulus Network&amp;rsquo;s Cumulus Linux, Broadcom&amp;rsquo;s FastPath.&lt;/h2&gt;
+
+&lt;p&gt;ONL is a base-level operating system and only includes example packet forwarding code. The main expectation is that you or other projects will write their own packet forwarding code. ONL&amp;rsquo;s goal is two fold. First, to become a development platform for tinkers and DYI types to build their own forwarding applications, and second to be useful component for building full commercial solutions on top of bare metal switches. For example, Big Switch Network&amp;rsquo;s SwitchLight OS is based on ONL. As such, the expectation is that someone deploying ONL will build or deploy their own packet forwarding application on top. Additionally, we expect that third parties will contribute binary-only forwarding applications (e.g., a traditional L2/L3 stack, an OpenFlow agent, something experimental, etc.) as time goes on. For example, the Open Route Cache or &amp;lsquo;orc&amp;rsquo; code enables traditional L3 routing, and the Indigo binary works as a OpenFlow agent.&lt;/p&gt;
+
+&lt;h2 id=&#34;is-there-any-open-source-or-at-least-open-sdks-for-managing-the-packet-forwarding-hardware&#34;&gt;Is there any open source (or at least open) SDKs for managing the packet forwarding hardware?&lt;/h2&gt;
+
+&lt;p&gt;Yes &amp;ndash; you need to match the SDK to the underlying forwarding hardware. Some of these projects are changing rapidly and some are announcements where the code is expected to come shortly. An incomplete list of SDKs are that available include:
+    - Broadcom OF-DPA SDK: (actual code!) &lt;a href=&#34;https://github.com/Broadcom-Switch/of-dpa/&#34;&gt;https://github.com/Broadcom-Switch/of-dpa/&lt;/a&gt;
+    - Broadcom OpenNSL SDK: (actual code!) &lt;a href=&#34;https://github.com/Broadcom-Switch/OpenNSL/&#34;&gt;https://github.com/Broadcom-Switch/OpenNSL/&lt;/a&gt;
+    - Mellanox Open Ethernet: (code coming soon) &lt;a href=&#34;http://www.mellanox.com/openethernet/&#34;&gt;http://www.mellanox.com/openethernet/&lt;/a&gt;
+    - Centec&amp;rsquo;s Lantern Project: (code needs link) &lt;a href=&#34;http://www.centecnetworks.com/en/NewsView.asp?ID=274&amp;amp;SortID=48#sthash.lZZdT6gK.dpbs&#34;&gt;http://www.centecnetworks.com/en/NewsView.asp?ID=274&amp;amp;SortID=48#sthash.lZZdT6gK.dpbs&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;onie-is-a-boot-loader-and-onl-has-its-own-boot-loader-do-they-compete-conflict-with-each-other&#34;&gt;ONIE is a boot loader and ONL has its own boot loader &amp;ndash; do they compete/conflict with each other?&lt;/h2&gt;
+
+&lt;p&gt;No they do not conflict and are in fact very complementary. Using the ONIE terminology, Open Network Linux is a networking operating system (NOS) that ONIE installs. Some of the confusion results because independent of ONIE, ONL has a two phase &lt;a href=&#34;http://opennetlinux.org/docs/bootprocess&#34;&gt;Boot Process&lt;/a&gt;, the first part of which we refer to as a boot loader. ONIE is also refered to as a boot loader and thus the confusion. ONIE is (from the name) an install environment, which is to say it is only used to install a different, full featured OS. ONIE is only run/invoked when installing or uninstalling a new operating system &amp;ndash; in normal operating, the ONIE code is not run. ONL&amp;rsquo;s boot loader is used to grab and cache the actual ONL final SWitch Image (.SWI). Compared to ONIE, the ONL loader initializes more hardware, has more drivers, and is intended to be a moderately useful OS in case of emergency. ONIE is intentionally stripped down to fit into the comparably small flash memory on the switch: the ONIE image is less than 4MB where the ONL boot loader image is ~64MB. A complete description of the &lt;a href=&#34;http://opennetlinux.org/docs/bootprocess&#34;&gt;boot process&lt;/a&gt; is available in the online documentation.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-does-open-network-linux-onl-differ-from-the-open-dataplane-odp-project-they-look-fairly-similar&#34;&gt;How does Open Network Linux (ONL) differ from the Open Dataplane (ODP) project - they look fairly similar?&lt;/h2&gt;
+
+&lt;p&gt;Both projects are trying to provide useful software abstractions and tooling on top of networking hardware so there are definite similarities. However, the target network hardware differs: ONL primarily focuses on higher-end (e.g., 1+ Tb/s aggregate throughput), very customized switching ASICs (e.g., Broadcom Trident2, Intel/Fulcrum Alta, Mellanox Switch2, etc.) where as ODP focuses on low-to-mid range more generally programmable hardware (e.g., from x86 to NPUs to general purpose SoC designs with hardware acceleration features for networking). While ideally there would be a single common API for all classes of networking hardware, the current reality is that the programming paradigms for these devices are very different and even the very flexible ODP API does not readily apply to the more complex ASICs used in ONL devices. ONL will continue to follow the ODP community (and vice versa!) as the technologies evolve, looking for synergies and points of co-operation.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-do-i-run-the-onie-uninstall-reinstall-rescue-upgrade-command&#34;&gt;How do I run the ONIE {uninstall,reinstall,rescue,upgrade} command?&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;- Update ONIE -- fw_setenv onie_boot_reason update &amp;amp;&amp;amp; reboot
+- Re-install NOS -- fw_setenv nos_bootcmd echo &amp;amp;&amp;amp; reboot
+- Uninstall NOS -- fw_setenv onie_boot_reason uninstall
+- Rescue mode -- fw_setenv onie_boot_reason rescue
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;what-routing-features-does-open-route-cache-support&#34;&gt;What Routing Features Does Open Route Cache Support?&lt;/h2&gt;
+
+&lt;p&gt;Open Route Cache (&amp;ldquo;ORC&amp;rdquo;) provides the glue code to hook a routing stack (e.g., &lt;a href=&#34;https://www.opensourcerouting.org/&#34;&gt;Quagga&lt;/a&gt;) to the underlying packet forwarding hardware. Currently, only basic IPv4 unicast forwarding. Support for IPv6, ECMP, multicast, and other advanced features are possible but do not exist at this time.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Open Network Linux - Getting started</title>
+      <link>http://ocp.opennetlinux.org/getting-started/</link>
+      <pubDate>Tue, 19 Jul 2016 00:11:02 +0100</pubDate>
+      
+      <guid>http://ocp.opennetlinux.org/getting-started/</guid>
+      <description>
+
+&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
+
+&lt;p&gt;To install and run ONL you need is an ONL Compatible switch (see
+&lt;a href=&#34;http://opennetlinux.org/hcl)&#34;&gt;http://opennetlinux.org/hcl)&lt;/a&gt; and the ONL installer binary.  Every
+ONL compatible switch ships with the ONIE installer environment installed
+which gives you a multitude of ways of getting ONL installed on your switch.&lt;/p&gt;
+
+&lt;p&gt;We document the easiest ways here (manual install via console and NFS)
+but the &lt;a href=&#34;http://onie.org&#34;&gt;http://onie.org&lt;/a&gt; website contains a variety of installation
+methods including via USB, over the network, and even via ssh.&lt;/p&gt;
+
+&lt;p&gt;The resulting installation has a default account (&amp;ldquo;root&amp;rdquo;) with a default
+password (&amp;ldquo;onl&amp;rdquo;).  The network interface is disabled by default so that
+you can change the root password before the system comes up.&lt;/p&gt;
+
+&lt;h2 id=&#34;onl-manual-install&#34;&gt;ONL Manual Install&lt;/h2&gt;
+
+&lt;p&gt;1) Attach a serial terminal to the switch
+2) Boot switch and hit return to go to ONIE&amp;rdquo;s interactive mode
+    2a) You must wait until after uboot has finished loading; if you
+        accidentally interupt uboot first, just run &lt;code&gt;boot&lt;/code&gt; to continue
+        booting into ONIE
+3) Download the ONL installer from &lt;a href=&#34;http://opennetlinux.org&#34;&gt;http://opennetlinux.org&lt;/a&gt; and run it by hand&lt;/p&gt;
+
+&lt;p&gt;Expected Serial Console Output (from an QuantaMesh LB9, other switches ouput wil
+l vary):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    U-Boot 2010.12 (Oct 08 2013 - 17:11:37)
+
+    CPU:   8541, Version: 1.1, (0x80720011)
+    Core:  Unknown, Version: 2.0, (0x80200020)
+    Clock Configuration:
+           CPU0:825  MHz,
+           CCB:330  MHz,
+           DDR:165  MHz (330 MT/s data rate), LBC:41.250 MHz
+    CPM:   330 MHz
+    L1:    D-cache 32 kB enabled
+           I-cache 32 kB enabled
+    I2C:   ready
+    DRAM:  Detected UDIMM TS128MSD64V3A
+    Detected UDIMM(s)
+    DDR: 1 GiB (DDR1, 64-bit, CL=2.5, ECC off)
+    FLASH: 64 MiB
+    L2:    256 KB enabled
+
+    LB9 U-Boot
+      Product Name          : LB9
+      Model Name            : QUANTA LB9
+      Serial Number         : QTFCA63280001
+      Part Number           : 1LB9BZZ0STQ
+      Label Revision Number : 1
+      Hardware Version      : 1.0
+      Platform Version      : 0xb901
+      Release Date          : 2013/7/5
+      MAC Address           : 08:9e:01:ce:bd:2d
+    Set ethaddr MAC address = 08:9e:01:ce:bd:2d
+    In:    serial
+    Out:   serial
+    Err:   serial
+    Net:   TSEC0: PHY is Broadcom BCM5461S (2060c1)
+    TSEC0
+    IDE:   Bus 0: OK
+      Device 0: Model: 4GB CompactFlash Card Firm: Ver6.04J Ser#: CDE207331D0100001484
+                Type: Hard Disk
+                Capacity: 3811.9 MB = 3.7 GB (7806960 x 512)
+    Hit any key to stop autoboot:  0
+    ## Error: &amp;quot;nos_bootcmd&amp;quot; not defined
+    Loading Open Network Install Environment ...
+    Platform: powerpc-quanta_lb9-r0
+    Version : 1.5.2-20131008154633
+    WARNING: adjusting available memory to 30000000
+    ## Booting kernel from Legacy Image at 04000000 ...
+       Image Name:   quanta_lb9-r0
+       Image Type:   PowerPC Linux Multi-File Image (gzip compressed)
+       Data Size:    3479390 Bytes = 3.3 MiB
+       Load Address: 00000000
+       Entry Point:  00000000
+       Contents:
+          Image 0: 2762740 Bytes = 2.6 MiB
+          Image 1: 707380 Bytes = 690.8 KiB
+          Image 2: 9254 Bytes = 9 KiB
+       Verifying Checksum ... OK
+    ## Loading init Ramdisk from multi component Legacy Image at 04000000 ...
+    ## Flattened Device Tree from multi component Image at 04000000
+       Booting using the fdt at 0x434f378
+       Uncompressing Multi-File Image ... OK
+       Loading Ramdisk to 2ff53000, end 2ffffb34 ... OK
+       Loading Device Tree to 03ffa000, end 03fff425 ... OK
+    Cannot reserve gpages without hugetlb enabled
+    setup_arch: bootmem
+    quanta_lb9_setup_arch()
+    arch: exit
+
+    ONIE: Using DHCPv4 addr: eth0: 10.7.1.10 / 255.254.0.0
+    discover: installer mode detected.  Running installer.
+
+    Please press Enter to activate this console. ONIE: Using DHCPv4 addr: eth0: 10.7.1.10 / 255.254.0.0
+    ONIE: Starting ONIE Service Discovery
+
+    To check the install status inspect /var/log/onie.log.
+    Try this:  tail -f /var/log/onie.log
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now press RETURN here to jump into ONIE&amp;rdquo;s manual installer mode.  You should se e:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    ** Installer Mode Enabled **
+
+    ONIE:/ #
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then simply download the latest ONL installer for the appropriate architecture (powerpc or amd64) from the website and run it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    ONIE:/ # install_url http://opennetlinux.org/binaries/latest-$ARCH.installer
+
+    Connecting to opennetlinux.org (107.170.237.53:80)
+    Open Network Installer running under ONIE.
+    Installer Version: Open Network Linux e148b7a (powerpc.all,2014.05.21.18.57,e148b7a90131c07eb8d49f74316baf8f2aae92c6)
+    Detected platform: powerpc-quanta-lb9-r0
+    Installing in standalone mode.
+    Unpacking Open Network Linux installer files...
+    onl.powerpc-as4600-54t.loader
+    onl.powerpc-as5600-52x.loader
+    ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note:&lt;/p&gt;
+
+&lt;p&gt;1) If there is different OS(other than ONL) running on the switch.
+Then halt the booting process at U-boot mode, Then check for the ONIE
+details in the environment(=&amp;gt; printenv). Open the ONIE in rescue mode,
+while ONIE has many different installation modes,
+we recommend the rescue mode for doing a manual (read: via console)
+because it disables the automatic ONIE server discovery.
+Then run (=&amp;gt; run onie_rescue) command to take you to the ONIE environment.&lt;/p&gt;
+
+&lt;p&gt;2) For development purpose, to load freshly build ONL installer from directly ON
+IE.
+Run a http server from the build machine (example:python -m SimpleHTTPServer 800
+0) and access it as,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;example: ONIE:/ # install_url http://buildmachineIPAddress:/path/to/directory/onl-09b7bba-powerpc-all.2016.02.05.05.17.installer # update for specific file/date/build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Also, you can use install via scp with two steps,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;   example: ONIE:/ # scp [username]@buildmachineIPAddress:/path/to/directory/onl-09b7bba-powerpc-all.2016.02.05.05.17.installer  ONL.installer # update for specific file/date/build
+            ONIE:/ # sh ONL.installer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;onl-rc-boot-and-persistant-storage&#34;&gt;ONL rc.boot and persistant storage&lt;/h2&gt;
+
+&lt;p&gt;Given that the default installation of ONL does not persist files across
+reboots (this is intentional &amp;ndash; flash disks should not be written to
+as often as spinning disks), it is sometimes useful to have a normally
+writable, larger disk available for the switch. For this ONL has the concept
+of the /mnt/onl/data directory and the ability to use rc.boot scripts.&lt;/p&gt;
+
+&lt;p&gt;To persist and setup programs:&lt;/p&gt;
+
+&lt;p&gt;1) Run the ONL installer normally (e.g., via the manual mode per above) so that the ONL loader is installed.&lt;/p&gt;
+
+&lt;p&gt;2) Edit /mnt/onl/data/rc.boot and insert the necessary commands&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; example: # cat /mnt/onl/data/rc.boot 
+          #!/bin/sh
+          dpkg -i /mnt/onl/data/package.deb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;3) reboot and confirm that commands are executing correctly:&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Open Network Linux - Community</title>
+      <link>http://ocp.opennetlinux.org/community/</link>
+      <pubDate>Wed, 08 Jun 2016 21:07:13 +0100</pubDate>
+      
+      <guid>http://ocp.opennetlinux.org/community/</guid>
+      <description>
+
+&lt;h3 id=&#34;mailing-lists&#34;&gt;Mailing lists&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;opennetworklinux@googlegroups.com : [&lt;a href=&#34;https://groups.google.com/forum/#!forum/opennetworklinux&#34;&gt;Subscribe&lt;/a&gt;][&lt;a href=&#34;https://groups.google.com/forum/#!forum/opennetworklinux&#34;&gt;Archives&lt;/a&gt;]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;talks&#34;&gt;Talks&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;ONL - A Programmers View: &lt;a href=&#34;http://opennetlinux.org/Open%20Network%20Linux%20-%20A%20Programmers%20View.pdf&#34;&gt;ONL API and Build System Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Silicon Valley SDN Meetup November 2015: &lt;a href=&#34;http://opennetlinux.org/OpenNetworkingOverview-SV-SDN-Meetup-Nov5.pdf&#34;&gt;Open Network Linux Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Open Compute Engineering Workshop, May 2014: &lt;a href=&#34;http://opennetlinux.org/OCP-May-ONL-final.pdf&#34;&gt;Open Network Linux Updates&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;video-tutorials&#34;&gt;Video Tutorials&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Open Network Summit Accelerate Webinar, January 2015 [&lt;a href=&#34;http://opennetlinux.org/OpenNetworkLinux-ons-accelerate-webinar.pdf&#34;&gt;slides&lt;/a&gt;]&lt;br /&gt;
+&lt;a href=&#34;http://vimeo.com/116943074&#34;&gt;Open Network Linux - A Path To A Fully Open Networking Stack&lt;/a&gt;.
+&lt;iframe src=&#34;//player.vimeo.com/video/116943074&#34; width=&#34;500&#34; height=&#34;281&#34; frame
+border=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p
+&gt;&lt;a href=&#34;http://vimeo.com/116943074&#34;&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Open Networking Summit, March 2014&lt;br /&gt;
+&lt;iframe src=&#34;//player.vimeo.com/video/88863039&#34; width=&#34;500&#34; height=&#34;281&#34; framebo
+rder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;li&gt; &lt;a id=&#34;brighttalk&#34;&gt;BrightTalk Webinar, April 2014&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;https://www.brighttalk.com/clients/js/embed/
+embed.js&#34;&gt;&lt;/script&gt;
+&lt;object class=&#34;BrightTALKEmbed&#34; width=&#34;656&#34; height=&#34;507&#34;&gt;
+    &lt;param name=&#34;player&#34; value=&#34;webcast_player_widescreen&#34;/&gt;
+    &lt;param name=&#34;domain&#34; value=&#34;https://www.brighttalk.com&#34;/&gt;
+    &lt;param name=&#34;channelid&#34; value=&#34;8615&#34;/&gt;
+    &lt;param name=&#34;communicationid&#34; value=&#34;106809&#34;/&gt;
+    &lt;param name=&#34;autoStart&#34; value=&#34;false&#34;/&gt;
+    &lt;param name=&#34;theme&#34; value=&#34;&#34;/&gt;
+&lt;/object&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Open Network Linux - License</title>
+      <link>http://ocp.opennetlinux.org/license/</link>
+      <pubDate>Tue, 19 Jul 2016 00:11:02 +0100</pubDate>
+      
+      <guid>http://ocp.opennetlinux.org/license/</guid>
+      <description>&lt;p&gt;As ONL is based on Debian; the following licenses are imported:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.debian.org/legal/licenses/&#34;&gt;https://www.debian.org/legal/licenses/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Broadcom based code is licensed under their licenses including:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Broadcom-Switch/OpenNSL/blob/master/LEGAL_TERMS&#34;&gt;https://github.com/Broadcom-Switch/OpenNSL/blob/master/LEGAL_TERMS&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/Broadcom-Switch/of-dpa/blob/master/LEGAL_TERMS&#34;&gt;https://github.com/Broadcom-Switch/of-dpa/blob/master/LEGAL_TERMS&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Unless otherwise noted, the following license applies to the
+files with in the Open Network Linux Repositories.&lt;/p&gt;
+
+&lt;p&gt;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&lt;/p&gt;
+
+&lt;p&gt;Licensed under the Eclipse Public License, Version 1.0 (the
+&amp;ldquo;License&amp;rdquo;); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.eclipse.org/legal/epl-v10.html&#34;&gt;http://www.eclipse.org/legal/epl-v10.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The text of the License is reproduced below.&lt;/p&gt;
+
+&lt;p&gt;Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+&amp;ldquo;AS IS&amp;rdquo; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+either express or implied. See the License for the specific
+language governing permissions and limitations under the
+License.&lt;/p&gt;
+
+&lt;p&gt;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&lt;/p&gt;
+
+&lt;p&gt;Eclipse Public License - v 1.0&lt;/p&gt;
+
+&lt;p&gt;THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS
+ECLIPSE PUBLIC LICENSE (&amp;ldquo;AGREEMENT&amp;rdquo;). ANY USE, REPRODUCTION OR
+DISTRIBUTION OF THE PROGRAM CONSTITUTES RECIPIENT&amp;rsquo;S ACCEPTANCE OF
+THIS AGREEMENT.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;DEFINITIONS&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&amp;ldquo;Contribution&amp;rdquo; means:&lt;/p&gt;
+
+&lt;p&gt;a) in the case of the initial Contributor, the initial code and
+documentation distributed under this Agreement, and&lt;/p&gt;
+
+&lt;p&gt;b) in the case of each subsequent Contributor:&lt;/p&gt;
+
+&lt;p&gt;i) changes to the Program, and&lt;/p&gt;
+
+&lt;p&gt;ii) additions to the Program;
+where such changes and/or additions to the Program originate from
+and are distributed by that particular Contributor. A
+Contribution &amp;lsquo;originates&amp;rsquo; from a Contributor if it was added to
+the Program by such Contributor itself or anyone acting on such
+Contributor&amp;rsquo;s behalf. Contributions do not include additions to
+the Program which: (i) are separate modules of software
+distributed in conjunction with the Program under their own
+license agreement, and (ii) are not derivative works of the
+Program.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Contributor&amp;rdquo; means any person or entity that distributes the Program.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Licensed Patents&amp;rdquo; mean patent claims licensable by a Contributor
+which are necessarily infringed by the use or sale of its
+Contribution alone or when combined with the Program.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Program&amp;rdquo; means the Contributions distributed in accordance with
+this Agreement.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Recipient&amp;rdquo; means anyone who receives the Program under this
+Agreement, including all Contributors.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;GRANT OF RIGHTS&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;a) Subject to the terms of this Agreement, each Contributor
+hereby grants Recipient a non-exclusive, worldwide, royalty-free
+copyright license to reproduce, prepare derivative works of,
+publicly display, publicly perform, distribute and sublicense the
+Contribution of such Contributor, if any, and such derivative
+works, in source code and object code form.&lt;/p&gt;
+
+&lt;p&gt;b) Subject to the terms of this Agreement, each Contributor
+hereby grants Recipient a non-exclusive, worldwide, royalty-free
+patent license under Licensed Patents to make, use, sell, offer
+to sell, import and otherwise transfer the Contribution of such
+Contributor, if any, in source code and object code form. This
+patent license shall apply to the combination of the Contribution
+and the Program if, at the time the Contribution is added by the
+Contributor, such addition of the Contribution causes such
+combination to be covered by the Licensed Patents. The patent
+license shall not apply to any other combinations which include
+the Contribution. No hardware per se is licensed hereunder.&lt;/p&gt;
+
+&lt;p&gt;c) Recipient understands that although each Contributor grants
+the licenses to its Contributions set forth herein, no assurances
+are provided by any Contributor that the Program does not
+infringe the patent or other intellectual property rights of any
+other entity. Each Contributor disclaims any liability to
+Recipient for claims brought by any other entity based on
+infringement of intellectual property rights or otherwise. As a
+condition to exercising the rights and licenses granted
+hereunder, each Recipient hereby assumes sole responsibility to
+secure any other intellectual property rights needed, if any. For
+example, if a third party patent license is required to allow
+Recipient to distribute the Program, it is Recipient&amp;rsquo;s
+responsibility to acquire that license before distributing the
+Program.&lt;/p&gt;
+
+&lt;p&gt;d) Each Contributor represents that to its knowledge it has
+sufficient copyright rights in its Contribution, if any, to grant
+the copyright license set forth in this Agreement.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;REQUIREMENTS&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;A Contributor may choose to distribute the Program in object code
+form under its own license agreement, provided that:&lt;/p&gt;
+
+&lt;p&gt;a) it complies with the terms and conditions of this Agreement;
+and&lt;/p&gt;
+
+&lt;p&gt;b) its license agreement:&lt;/p&gt;
+
+&lt;p&gt;i) effectively disclaims on behalf of all Contributors all
+warranties and conditions, express and implied, including
+warranties or conditions of title and non-infringement, and
+implied warranties or conditions of merchantability and fitness
+for a particular purpose;&lt;/p&gt;
+
+&lt;p&gt;ii) effectively excludes on behalf of all Contributors all
+liability for damages, including direct, indirect, special,
+incidental and consequential damages, such as lost profits;&lt;/p&gt;
+
+&lt;p&gt;iii) states that any provisions which differ from this Agreement
+are offered by that Contributor alone and not by any other party;
+and&lt;/p&gt;
+
+&lt;p&gt;iv) states that source code for the Program is available from
+such Contributor, and informs licensees how to obtain it in a
+reasonable manner on or through a medium customarily used for
+software exchange.&lt;/p&gt;
+
+&lt;p&gt;When the Program is made available in source code form:&lt;/p&gt;
+
+&lt;p&gt;a) it must be made available under this Agreement; and&lt;/p&gt;
+
+&lt;p&gt;b) a copy of this Agreement must be included with each copy of
+the Program.&lt;/p&gt;
+
+&lt;p&gt;Contributors may not remove or alter any copyright notices
+contained within the Program.&lt;/p&gt;
+
+&lt;p&gt;Each Contributor must identify itself as the originator of its
+Contribution, if any, in a manner that reasonably allows
+subsequent Recipients to identify the originator of the
+Contribution.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;COMMERCIAL DISTRIBUTION&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Commercial distributors of software may accept certain
+responsibilities with respect to end users, business partners and
+the like. While this license is intended to facilitate the
+commercial use of the Program, the Contributor who includes the
+Program in a commercial product offering should do so in a manner
+which does not create potential liability for other
+Contributors. Therefore, if a Contributor includes the Program in
+a commercial product offering, such Contributor (&amp;ldquo;Commercial
+Contributor&amp;rdquo;) hereby agrees to defend and indemnify every other
+Contributor (&amp;ldquo;Indemnified Contributor&amp;rdquo;) against any losses,
+damages and costs (collectively &amp;ldquo;Losses&amp;rdquo;) arising from claims,
+lawsuits and other legal actions brought by a third party against
+the Indemnified Contributor to the extent caused by the acts or
+omissions of such Commercial Contributor in connection with its
+distribution of the Program in a commercial product offering. The
+obligations in this section do not apply to any claims or Losses
+relating to any actual or alleged intellectual property
+infringement. In order to qualify, an Indemnified Contributor
+must: a) promptly notify the Commercial Contributor in writing of
+such claim, and b) allow the Commercial Contributor to control,
+and cooperate with the Commercial Contributor in, the defense and
+any related settlement negotiations. The Indemnified Contributor
+may participate in any such claim at its own expense.&lt;/p&gt;
+
+&lt;p&gt;For example, a Contributor might include the Program in a
+commercial product offering, Product X. That Contributor is then
+a Commercial Contributor. If that Commercial Contributor then
+makes performance claims, or offers warranties related to Product
+X, those performance claims and warranties are such Commercial
+Contributor&amp;rsquo;s responsibility alone. Under this section, the
+Commercial Contributor would have to defend claims against the
+other Contributors related to those performance claims and
+warranties, and if a court requires any other Contributor to pay
+any damages as a result, the Commercial Contributor must pay
+those damages.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;NO WARRANTY&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;EXCEPT AS EXPRESSLY SET FORTH IN THIS AGREEMENT, THE PROGRAM IS
+PROVIDED ON AN &amp;ldquo;AS IS&amp;rdquo; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+ANY KIND, EITHER EXPRESS OR IMPLIED INCLUDING, WITHOUT
+LIMITATION, ANY WARRANTIES OR CONDITIONS OF TITLE,
+NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR
+PURPOSE. Each Recipient is solely responsible for determining the
+appropriateness of using and distributing the Program and assumes
+all risks associated with its exercise of rights under this
+Agreement , including but not limited to the risks and costs of
+program errors, compliance with applicable laws, damage to or
+loss of data, programs or equipment, and unavailability or
+interruption of operations.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;DISCLAIMER OF LIABILITY&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;EXCEPT AS EXPRESSLY SET FORTH IN THIS AGREEMENT, NEITHER
+RECIPIENT NOR ANY CONTRIBUTORS SHALL HAVE ANY LIABILITY FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING WITHOUT LIMITATION LOST
+PROFITS), HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OR DISTRIBUTION OF
+THE PROGRAM OR THE EXERCISE OF ANY RIGHTS GRANTED HEREUNDER, EVEN
+IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;GENERAL&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If any provision of this Agreement is invalid or unenforceable
+under applicable law, it shall not affect the validity or
+enforceability of the remainder of the terms of this Agreement,
+and without further action by the parties hereto, such provision
+shall be reformed to the minimum extent necessary to make such
+provision valid and enforceable.&lt;/p&gt;
+
+&lt;p&gt;If Recipient institutes patent litigation against any entity
+(including a cross-claim or counterclaim in a lawsuit) alleging
+that the Program itself (excluding combinations of the Program
+with other software or hardware) infringes such Recipient&amp;rsquo;s
+patent(s), then such Recipient&amp;rsquo;s rights granted under Section
+2(b) shall terminate as of the date such litigation is filed.&lt;/p&gt;
+
+&lt;p&gt;All Recipient&amp;rsquo;s rights under this Agreement shall terminate if it
+fails to comply with any of the material terms or conditions of
+this Agreement and does not cure such failure in a reasonable
+period of time after becoming aware of such noncompliance. If all
+Recipient&amp;rsquo;s rights under this Agreement terminate, Recipient
+agrees to cease use and distribution of the Program as soon as
+reasonably practicable. However, Recipient&amp;rsquo;s obligations under
+this Agreement and any licenses granted by Recipient relating to
+the Program shall continue and survive.&lt;/p&gt;
+
+&lt;p&gt;Everyone is permitted to copy and distribute copies of this
+Agreement, but in order to avoid inconsistency the Agreement is
+copyrighted and may only be modified in the following manner. The
+Agreement Steward reserves the right to publish new versions
+(including revisions) of this Agreement from time to time. No one
+other than the Agreement Steward has the right to modify this
+Agreement. The Eclipse Foundation is the initial Agreement
+Steward. The Eclipse Foundation may assign the responsibility to
+serve as the Agreement Steward to a suitable separate
+entity. Each new version of the Agreement will be given a
+distinguishing version number. The Program (including
+Contributions) may always be distributed subject to the version
+of the Agreement under which it was received. In addition, after
+a new version of the Agreement is published, Contributor may
+elect to distribute the Program (including its Contributions)
+under the new version. Except as expressly stated in Sections
+2(a) and 2(b) above, Recipient receives no rights or licenses to
+the intellectual property of any Contributor under this
+Agreement, whether expressly, by implication, estoppel or
+otherwise. All rights in the Program not expressly granted under
+this Agreement are reserved.&lt;/p&gt;
+
+&lt;p&gt;This Agreement is governed by the laws of the State of New York
+and the intellectual property laws of the United States of
+America. No party to this Agreement will bring a legal action
+under this Agreement more than one year after the cause of action
+arose. Each party waives its rights to a jury trial in any
+resulting litigation.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Open Network Linux Blog</title>
+      <link>http://ocp.opennetlinux.org/blog/</link>
+      <pubDate>Wed, 08 Jun 2016 21:07:13 +0100</pubDate>
+      
+      <guid>http://ocp.opennetlinux.org/blog/</guid>
+      <description>
+
+&lt;h2 id=&#34;june-28th-2016&#34;&gt;June 28th, 2016:&lt;/h2&gt;
+
+&lt;p&gt;Added support for Accton AS5512 (Nephos/MediaTek switch), updated disk partitioning and started providing OpenNSL packages.&lt;/p&gt;
+
+&lt;h2 id=&#34;may-27th-2016&#34;&gt;May 27th, 2016:&lt;/h2&gt;
+
+&lt;p&gt;Added support for Wedge 100: updated Wedge &lt;a href=&#34;http://opennetlinux.org/binaries/latest-wedge-2.0.installer&#34;&gt;purpose built image &lt;/a&gt;to support Wedge 100 and provided &lt;a href=&#34;http://opennetlinux.org/binaries/accton-wedge/onie-recovery-x86-64-facebook-wedge100-r0.iso&#34;&gt;ONIE installer&lt;/a&gt; for Wedge 100.&lt;/p&gt;
+
+&lt;h2 id=&#34;february-20th-2016&#34;&gt;February 20th, 2016:&lt;/h2&gt;
+
+&lt;p&gt;Added support for Dell Z9100-ON and updated documentation on building to include example from &lt;a href=&#34;https://opennetlinux.org/docs/build&#34;&gt;clean Debian 8 install&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;january-31st-2016&#34;&gt;January 31st, 2016:&lt;/h2&gt;
+
+&lt;p&gt;Added binaries and updated documentation for the OCP OpenNetworkLinux repository. Binary links are named &lt;a href=&#34;http://opennetlinux.org/binaries/latest-2.0-AMD64.installer&#34;&gt;latest-2.0-AMD64.installer&lt;/a&gt; and &lt;a href=&#34;http://opennetlinux.org/binaries/latest-2.0-PPC.installer&#34;&gt;latest-2.0-PPC.installer&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;january-28th-2016&#34;&gt;January 28th, 2016:&lt;/h2&gt;
+
+&lt;p&gt;OpenNetworkLinux has officially moved to the Open Compute Project github repository at &lt;a href=&#34;http://github.com/opencomputeproject/OpenNetworkLinux&#34;&gt;github.com/opencomputeproject/OpenNetworkLinux&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;january-4th-2016&#34;&gt;January 4th, 2016:&lt;/h2&gt;
+
+&lt;p&gt;Added support for Accton 7712, 7716, 5812, 5812, Interface Masters Niagara 29xx, WNC sst1&lt;/p&gt;
+
+&lt;h2 id=&#34;october-26th-2015&#34;&gt;October 26th, 2015:&lt;/h2&gt;
+
+&lt;p&gt;Added support for Quanta LY6 and LY8 Rangeley based switches&lt;/p&gt;
+
+&lt;h2 id=&#34;october-2-2015&#34;&gt;October 2, 2015:&lt;/h2&gt;
+
+&lt;p&gt;Added support for Edge-Core AS5712, fixes for persist.&lt;/p&gt;
+
+&lt;h2 id=&#34;may-19-2015&#34;&gt;May 19, 2015: &lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://groups.google.com/forum/#!topic/opennetworklinux/DE43vdJrPh8&#34;&gt;Added Support for Dell S6000-ON and Dell S4048-ON switches&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;march-12-2015&#34;&gt;March 12, 2015:&lt;/h2&gt;
+
+&lt;p&gt;Blog &lt;a href=&#34;http://www.bigswitch.com/blog/2015/03/09/attention-world-the-network-is-now-open&#34;&gt;Attention World: The Network is Now Open!&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;march-10-2015&#34;&gt;March 10, 2015 &lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.bigswitch.com/press-releases/2015/03/10/open-compute-project-ocp-formally-accepts-open-network-linux-onl&#34;&gt;Open Network Linux&lt;/a&gt; formally accepted into &lt;a href=&#34;http://opencompute.org/&#34;&gt;Open Compute&lt;/a&gt; as a Project&lt;/p&gt;
+
+&lt;h2 id=&#34;november-24-2014&#34;&gt;November 24, 2014: &lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://groups.google.com/forum/#!searchin/opennetworklinux/open$20route$20cache/opennetworklinux/rgrYrYhzWJg/b-re3e-3Dx0J&#34;&gt;Announce: Open Route Cache and ONL Platform code committed to ONL&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;may-8-2014&#34;&gt;May 8, 2014:&lt;/h2&gt;
+
+&lt;p&gt;Gave an ONL &lt;a href=&#34;http://opennetlinux.org/OCP-May-ONL-final.pdf&#34;&gt;Update&lt;/a&gt; at Open Compute Engineering Workshop in San Antonio&lt;/p&gt;
+
+&lt;h2 id=&#34;april-16-2014&#34;&gt;April 16, 2014:&lt;/h2&gt;
+
+&lt;p&gt;Hosted Webinar on &lt;a href=&#34;http://opennetlinux.org/community#brighttalk&#34;&gt;Open Network Linux&lt;/a&gt;, SDN, and the Indigo OpenFlow agent.&lt;/p&gt;
+
+&lt;h2 id=&#34;april-4-2014&#34;&gt;April 4, 2014:&lt;/h2&gt;
+
+&lt;p&gt;Added preliminary support for &lt;a href=&#34;http://opennetlinux.org/hcl&#34;&gt;Accton and DNI boxes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;march-20-2014&#34;&gt;March 20, 2014:&lt;/h2&gt;
+
+&lt;p&gt;This website goes live!&lt;/p&gt;
+
+&lt;h2 id=&#34;march-3-2014&#34;&gt;March 3, 2014:&lt;/h2&gt;
+
+&lt;p&gt;Rob Sherwood presents ONL tutorial at Open Network Summit 2014: &lt;a href=&#34;http://opennetlinux.org/community&#34;&gt;Watch Video&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;january-27-2014&#34;&gt;January 27, 2014:&lt;/h2&gt;
+
+&lt;p&gt;Presentation and Demo at Open Compute Project: Read &lt;a href=&#34;http://opennetlinux.org/OCP_2014_eng_workshop.pdf&#34;&gt;slides&lt;/a&gt; from talk.&lt;/p&gt;
+
+&lt;h2 id=&#34;january-26-2014&#34;&gt;January 26, 2014:&lt;/h2&gt;
+
+&lt;p&gt;Code released on &lt;a href=&#34;http://github.com/opennetworklinux/ONL&#34;&gt;github.com/opennetworklinux/ONL&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;november-2013&#34;&gt;November, 2013:&lt;/h2&gt;
+
+&lt;p&gt;Initial Proposal at Open Compute Project Engineering Workshop in San Antonio: Read &lt;a href=&#34;http://opennetlinux.org/LinuxDistroOCP-November.pdf&#34;&gt;slides&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Open Network Linux - Getting Started With The Wedge</title>
+      <link>http://ocp.opennetlinux.org/wedge/</link>
+      <pubDate>Tue, 19 Jul 2016 00:11:02 +0100</pubDate>
+      
+      <guid>http://ocp.opennetlinux.org/wedge/</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;ONL Supports the [&lt;a href=&#34;http://www.edge-core.com/productsInfo.php?cls=1&amp;amp;cls2=7&amp;amp;cls3=57&amp;amp;id=110&#34;&gt;Wedge 40&lt;/a&gt;] running the Facebook [&lt;a href=&#34;https://github.com/facebook/fboss&#34;&gt;FBOSS&lt;/a&gt;] fowarding agent and [&lt;a href=&#34;http://www.snaproute.com/&#34;&gt;Snaproute&lt;/a&gt;].&lt;/li&gt;
+&lt;li&gt;ONL Supports the Wedge 100 running [&lt;a href=&#34;http://www.snaproute.com/&#34;&gt;Snaproute&lt;/a&gt;].&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;installation-instructions&#34;&gt;Installation Instructions&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;If your Wedge does not have ONIE, you will need to install it to install ONL, it can be download from here:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Wedge 40 - &lt;a href=&#34;http://opennetlinux.org/binaries/accton-wedge/onie-recovery-wedge.iso&#34;&gt;ONIE for Wedge 40&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Wedge 100 - &lt;a href=&#34;http://opennetlinux.org/binaries/accton-wedge/onie-recovery-x86-64-facebook-wedge100-r0.iso&#34;&gt;ONIE for Wedge 100&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Burn the ONIE .iso to a USB&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Assuming that your USB is /dev/sdb, under linux you would do: dd if=onie-recovery-x86_64-accton_wedge_x16-r0.iso of=/dev/sdb bs=10M&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Follow the directions in &lt;a href=&#34;https://github.com/opencomputeproject/OpenNetworkLinux/blob/master/docs/GettingStartedWedge.md&#34;&gt;Wedge Installation Guide&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;video-tutorials&#34;&gt;Video Tutorials&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Installing ONIE
+&lt;br&gt;
+&lt;iframe src=&#34;//player.vimeo.com/video/146086436&#34; width=&#34;500&#34; height=&#34;281&#34; frame border=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;.&lt;/li&gt;
+&lt;li&gt;Installing ONL
+&lt;br&gt;
+&lt;iframe src=&#34;//player.vimeo.com/video/146086486&#34; width=&#34;500&#34; height=&#34;281&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;&lt;p&gt;.&lt;/li&gt;
+&lt;li&gt;Running FBOSS
+&lt;br&gt;
+&lt;iframe src=&#34;//player.vimeo.com/video/146086434&#34; width=&#34;500&#34; height=&#34;281&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
