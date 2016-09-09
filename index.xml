@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Open Network Linux</title>
-    <link>http://ocp.opennetlinux.org/</link>
+    <link>http://sonoble.github.io/onlocp/</link>
     <description>Recent content on Open Network Linux</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 08 Jun 2016 21:07:13 +0100</lastBuildDate>
-    <atom:link href="http://ocp.opennetlinux.org/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://sonoble.github.io/onlocp/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Open Network Linux</title>
-      <link>http://ocp.opennetlinux.org/</link>
+      <link>http://sonoble.github.io/onlocp/</link>
       <pubDate>Wed, 08 Jun 2016 21:07:13 +0100</pubDate>
       
-      <guid>http://ocp.opennetlinux.org/</guid>
+      <guid>http://sonoble.github.io/onlocp/</guid>
       <description>
 
 &lt;p&gt;&lt;center&gt;&lt;img src=&#34;images/logo.png&#34; width=&#34;400&#34;&gt;&lt;/center&gt;&lt;/p&gt;
@@ -33,10 +33,10 @@
     
     <item>
       <title>Open Network Linux - Frequently Asked Questions</title>
-      <link>http://ocp.opennetlinux.org/faq/</link>
+      <link>http://sonoble.github.io/onlocp/faq/</link>
       <pubDate>Tue, 19 Jul 2016 00:11:02 +0100</pubDate>
       
-      <guid>http://ocp.opennetlinux.org/faq/</guid>
+      <guid>http://sonoble.github.io/onlocp/faq/</guid>
       <description>
 
 &lt;h2 id=&#34;what-are-bare-metal-switches&#34;&gt;What are &amp;ldquo;Bare Metal Switches&amp;rdquo;?&lt;/h2&gt;
@@ -83,10 +83,10 @@
     
     <item>
       <title>Open Network Linux - Getting started</title>
-      <link>http://ocp.opennetlinux.org/getting-started/</link>
+      <link>http://sonoble.github.io/onlocp/getting-started/</link>
       <pubDate>Tue, 19 Jul 2016 00:11:02 +0100</pubDate>
       
-      <guid>http://ocp.opennetlinux.org/getting-started/</guid>
+      <guid>http://sonoble.github.io/onlocp/getting-started/</guid>
       <description>
 
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
@@ -263,10 +263,10 @@ of the /mnt/onl/data directory and the ability to use rc.boot scripts.&lt;/p&gt;
     
     <item>
       <title>Open Network Linux - Community</title>
-      <link>http://ocp.opennetlinux.org/community/</link>
+      <link>http://sonoble.github.io/onlocp/community/</link>
       <pubDate>Wed, 08 Jun 2016 21:07:13 +0100</pubDate>
       
-      <guid>http://ocp.opennetlinux.org/community/</guid>
+      <guid>http://sonoble.github.io/onlocp/community/</guid>
       <description>
 
 &lt;h3 id=&#34;mailing-lists&#34;&gt;Mailing lists&lt;/h3&gt;
@@ -312,10 +312,10 @@ embed.js&#34;&gt;&lt;/script&gt;
     
     <item>
       <title>Open Network Linux - License</title>
-      <link>http://ocp.opennetlinux.org/license/</link>
+      <link>http://sonoble.github.io/onlocp/license/</link>
       <pubDate>Tue, 19 Jul 2016 00:11:02 +0100</pubDate>
       
-      <guid>http://ocp.opennetlinux.org/license/</guid>
+      <guid>http://sonoble.github.io/onlocp/license/</guid>
       <description>&lt;p&gt;As ONL is based on Debian; the following licenses are imported:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://www.debian.org/legal/licenses/&#34;&gt;https://www.debian.org/legal/licenses/&lt;/a&gt;&lt;/p&gt;
@@ -611,10 +611,10 @@ resulting litigation.&lt;/p&gt;
     
     <item>
       <title>Open Network Linux Blog</title>
-      <link>http://ocp.opennetlinux.org/blog/</link>
+      <link>http://sonoble.github.io/onlocp/blog/</link>
       <pubDate>Wed, 08 Jun 2016 21:07:13 +0100</pubDate>
       
-      <guid>http://ocp.opennetlinux.org/blog/</guid>
+      <guid>http://sonoble.github.io/onlocp/blog/</guid>
       <description>
 
 &lt;h2 id=&#34;june-28th-2016&#34;&gt;June 28th, 2016:&lt;/h2&gt;
@@ -701,10 +701,10 @@ resulting litigation.&lt;/p&gt;
     
     <item>
       <title>Open Network Linux - Getting Started With The Wedge</title>
-      <link>http://ocp.opennetlinux.org/wedge/</link>
+      <link>http://sonoble.github.io/onlocp/wedge/</link>
       <pubDate>Tue, 19 Jul 2016 00:11:02 +0100</pubDate>
       
-      <guid>http://ocp.opennetlinux.org/wedge/</guid>
+      <guid>http://sonoble.github.io/onlocp/wedge/</guid>
       <description>
 
 &lt;ul&gt;
