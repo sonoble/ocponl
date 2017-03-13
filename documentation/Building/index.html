@@ -8,18 +8,18 @@
   <head lang="en-us">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
-    <title>Open Network Linux Blog - Open Network Linux</title>
+    <title>Open Network Linux - Documentation - Building - Open Network Linux</title>
     <meta name="generator" content="Hugo 0.16" />
 
     
     <meta name="description" content="A material design theme for documentations.">
     
-    <link rel="canonical" href="http://ocp.opennetlinux.org/blog/">
+    <link rel="canonical" href="http://ocp.opennetlinux.org/documentation/Building/">
     
     <meta name="author" content="Digitalcraftsman">
     
 
-    <meta property="og:url" content="http://ocp.opennetlinux.org/blog/">
+    <meta property="og:url" content="http://ocp.opennetlinux.org/documentation/Building/">
     <meta property="og:title" content="Open Network Linux">
     <meta property="og:image" content="http://ocp.opennetlinux.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="Open Network Linux">
@@ -96,7 +96,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Open Network Linux Blog
+        Open Network Linux - Documentation - Building
       </div>
     </div>
 
@@ -285,14 +285,11 @@
 
 
 
-<a class="current" title="Blog" href="http://ocp.opennetlinux.org/blog/">
+<a  title="Blog" href="http://ocp.opennetlinux.org/blog/">
 	
 	Blog
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
   
 </li>
@@ -366,89 +363,239 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Open Network Linux Blog </h1>
+			<h1>Open Network Linux - Documentation - Building </h1>
 
 			
 
-<h2 id="june-28th-2016">June 28th, 2016:</h2>
+<p>#How to Build Open Network Linux</p>
 
-<p>Added support for Accton AS5512 (Nephos/MediaTek switch), updated disk partitioning and started providing OpenNSL packages.</p>
+<p>In case you are not interested in building ONL from scratch
+(it takes a while) you can download pre-compiled binaries from
+<a href="http://opennetlinux.org/binaries">http://opennetlinux.org/binaries</a> .</p>
 
-<h2 id="may-27th-2016">May 27th, 2016:</h2>
+<h2 id="build-hosts-and-environments">Build Hosts and Environments</h2>
 
-<p>Added support for Wedge 100: updated Wedge <a href="http://opennetlinux.org/binaries/latest-wedge-2.0.installer">purpose built image </a>to support Wedge 100 and provided <a href="http://opennetlinux.org/binaries/accton-wedge/onie-recovery-x86-64-facebook-wedge100-r0.iso">ONIE installer</a> for Wedge 100.</p>
+<p>ONL builds with Docker so the only requirements on the build system is:</p>
 
-<h2 id="february-20th-2016">February 20th, 2016:</h2>
+<ul>
+<li>docker            # to grab the build workspace</li>
+<li>binfmt-support        # kernel support for ppc builds</li>
+<li>About 40G of disk free space  # to build all images</li>
+<li>At least 4G of ram and 4G of swap # compilation is memory intensive</li>
+</ul>
 
-<p>Added support for Dell Z9100-ON and updated documentation on building to include example from <a href="https://opennetlinux.org/docs/build">clean Debian 8 install</a>.</p>
+<p>All of the testing is done with Debian, other Linux distributions may work, but we suggest using Debian 8.
+    # apt-get install binfmt-support
+    then follow the instructions at: <a href="https://docs.docker.com/engine/installation/debian/">https://docs.docker.com/engine/installation/debian/</a></p>
 
-<h2 id="january-31st-2016">January 31st, 2016:</h2>
+<h2 id="build-onl-summary">Build ONL Summary</h2>
 
-<p>Added binaries and updated documentation for the OCP OpenNetworkLinux repository. Binary links are named <a href="http://opennetlinux.org/binaries/latest-2.0-AMD64.installer">latest-2.0-AMD64.installer</a> and <a href="http://opennetlinux.org/binaries/latest-2.0-PPC.installer">latest-2.0-PPC.installer</a></p>
+<p>The easiest way to build is to use the make docker command:</p>
 
-<h2 id="january-28th-2016">January 28th, 2016:</h2>
+<pre><code>#&gt; git clone https://github.com/opencomputeproject/OpenNetworkLinux
+#&gt; cd OpenNetworkLinux
+#&gt; make docker
+</code></pre>
 
-<p>OpenNetworkLinux has officially moved to the Open Compute Project github repository at <a href="http://github.com/opencomputeproject/OpenNetworkLinux">github.com/opencomputeproject/OpenNetworkLinux</a></p>
+<p>This will build a Debian 7 based ONL from the master branch</p>
 
-<h2 id="january-4th-2016">January 4th, 2016:</h2>
+<p>To build a Debian 8 based ONL run:</p>
 
-<p>Added support for Accton 7712, 7716, 5812, 5812, Interface Masters Niagara 29xx, WNC sst1</p>
+<pre><code>#&gt; git clone https://github.com/opencomputeproject/OpenNetworkLinux
+#&gt; cd OpenNetworkLinux
+#&gt; export VERSION=8
+#&gt; make docker
+</code></pre>
 
-<h2 id="october-26th-2015">October 26th, 2015:</h2>
+<p>If you would like to build by hand you can do the following:</p>
 
-<p>Added support for Quanta LY6 and LY8 Rangeley based switches</p>
+<pre><code>#&gt; git clone https://github.com/opencomputeproject/OpenNetworkLinux
+#&gt; cd OpenNetworkLinux
+#&gt; docker/tools/onlbuilder (-8)                                        # enter the docker workspace
+#&gt; apt-cacher-ng
+#&gt; source setup.env             # pull in necessary environment variables
+#&gt; make amd64 ppc                           # make onl for $platform (currently amd64 or powerpc)
+</code></pre>
 
-<h2 id="october-2-2015">October 2, 2015:</h2>
+<p>The resulting ONIE installers are in
+$ONL/RELEASE/$SUITE/$ARCH/ONL-2.<em>INSTALLER, i.e.
+RELEASE/jessie/amd64/ONL-2.0.0_ONL-OS_2015-12-12.0252-ffce159_AMD64_INSTALLER
+and the SWI files (if you want them) are in
+$ONL/RELEASE/$SUITE/$ARCH/ONL</em>.swi. i.e.
+RELEASE/jessie/amd64/ONL-2.0.0_ONL-OS_2015-12-12.0252-ffce159_AMD64.swi</p>
 
-<p>Added support for Edge-Core AS5712, fixes for persist.</p>
+<p>#Installing Docker Gotchas</p>
 
-<h2 id="may-19-2015">May 19, 2015: </h2>
+<p>Docker installer oneliner (for reference: see docker.com for details)</p>
 
-<p><a href="https://groups.google.com/forum/#!topic/opennetworklinux/DE43vdJrPh8">Added Support for Dell S6000-ON and Dell S4048-ON switches</a></p>
+<pre><code># wget -qO- https://get.docker.com/ | sh
+</code></pre>
 
-<h2 id="march-12-2015">March 12, 2015:</h2>
+<p>Common docker related issues:</p>
 
-<p>Blog <a href="http://www.bigswitch.com/blog/2015/03/09/attention-world-the-network-is-now-open">Attention World: The Network is Now Open!</a></p>
+<ul>
+<li>Check out <a href="http://docs.docker.com/installation/debian/">http://docs.docker.com/installation/debian/</a> for detailed instructions</li>
+<li>You may have to update your kernel to 3.10+</li>
+<li>Beware that <code>apt-get install docker</code> installs a dock application not docker :-)  You want the lxc-docker package instead.</li>
+<li>Some versions of docker are unhappy if you use a local DNS caching resolver:
 
-<h2 id="march-10-2015">March 10, 2015 </h2>
+<ul>
+<li>e.g., you have 127.0.0.1 in your /etc/resolv.conf
 
-<p><a href="http://www.bigswitch.com/press-releases/2015/03/10/open-compute-project-ocp-formally-accepts-open-network-linux-onl">Open Network Linux</a> formally accepted into <a href="http://opencompute.org/">Open Compute</a> as a Project</p>
+<ul>
+<li>if you have this, specify DNS=&ldquo;&ndash;dns 8.8.8.8&rdquo; when you enter the docker environment</li>
+</ul></li>
+<li>e.g., <code>make DNS=&quot;--dns 8.8.8.8&quot; docker</code></li>
+</ul></li>
+</ul>
 
-<h2 id="november-24-2014">November 24, 2014: </h2>
+<p>Consider enabling builds for non-privileged users with:</p>
 
-<p><a href="https://groups.google.com/forum/#!searchin/opennetworklinux/open$20route$20cache/opennetworklinux/rgrYrYhzWJg/b-re3e-3Dx0J">Announce: Open Route Cache and ONL Platform code committed to ONL</a></p>
+<ul>
+<li><code>sudo usermod -aG docker $USER</code></li>
+<li>If you run as non-root without this, you will get errors like &ldquo;..: dial unix /var/run/docker.sock: permission denied&rdquo;</li>
+<li>Building as root is fine as well (it immediately jumps into a root build shell), so this optional
+<br /></li>
+</ul>
 
-<h2 id="may-8-2014">May 8, 2014:</h2>
+<h2 id="additional-build-details">#Additional Build Details</h2>
 
-<p>Gave an ONL <a href="http://opennetlinux.org/OCP-May-ONL-final.pdf">Update</a> at Open Compute Engineering Workshop in San Antonio</p>
+<p>The rest of this guide talks about how to build specific
+sub-components of the ONL ecosystem and tries to overview
+all of the various elements of the build.</p>
 
-<h2 id="april-16-2014">April 16, 2014:</h2>
+<h2 id="build-all-deb-packages-for-all-architectures">Build all .deb packages for all architectures</h2>
 
-<p>Hosted Webinar on <a href="http://opennetlinux.org/community#brighttalk">Open Network Linux</a>, SDN, and the Indigo OpenFlow agent.</p>
+<pre><code>#&gt; cd $ONL/packages
+#&gt; make
+#&gt; find $ONL/REPO -name \*.deb    # all of the .deb files end up here
+</code></pre>
 
-<h2 id="april-4-2014">April 4, 2014:</h2>
+<p>A number of things will happen automatically, including:</p>
 
-<p>Added preliminary support for <a href="http://opennetlinux.org/hcl">Accton and DNI boxes</a>.</p>
+<ul>
+<li>git submodule checkouts and updates for kernel, loader, and additional code repositories</li>
+<li>automatic builds of all debian packages and their dependencies</li>
+<li>automatic download of binary-only .deb packages from apt.opennetlinux.org</li>
+</ul>
 
-<h2 id="march-20-2014">March 20, 2014:</h2>
+<p>After all components have been built, your can build an ONL
+Software Image from those components.</p>
 
-<p>This website goes live!</p>
+<h2 id="adding-removing-packages-from-a-swi">Adding/Removing packages from a SWI:</h2>
 
-<h2 id="march-3-2014">March 3, 2014:</h2>
+<p>The list of packages for a given SWI are in</p>
 
-<p>Rob Sherwood presents ONL tutorial at Open Network Summit 2014: <a href="http://opennetlinux.org/community">Watch Video</a></p>
+<pre><code>$ONL/packages/base/any/rootfs/common/$ARCH-packages.yml # for $ARCH specific packages
+$ONL/packages/base/any/rootfs/common/common-packages.yml    # for $ARCH-independent packages
+</code></pre>
 
-<h2 id="january-27-2014">January 27, 2014:</h2>
+<h2 id="build-a-software-image-swi-for-all-powerpc-platforms">Build a software image (SWI) for all powerpc platforms:</h2>
 
-<p>Presentation and Demo at Open Compute Project: Read <a href="http://opennetlinux.org/OCP_2014_eng_workshop.pdf">slides</a> from talk.</p>
+<pre><code>#&gt; cd $ONL/builds/powerpc/swi
+#&gt; make
+#&gt; cd builds
+#&gt; ls *.swi
+ONL-2.0.0_ONL-OS_2015-12-12.0252-ffce159_PPC.swi
+#&gt;
+</code></pre>
 
-<h2 id="january-26-2014">January 26, 2014:</h2>
+<p>Build an ONIE-compatible installer for all powerpc platforms.
+This will incorporate the SWI you just built or build it dynamically if not.</p>
 
-<p>Code released on <a href="http://github.com/opennetworklinux/ONL">github.com/opennetworklinux/ONL</a></p>
+<h2 id="this-installer-image-can-be-served-to-onie-on-quanta-or-accton-platforms">This installer image can be served to ONIE on Quanta or Accton platforms:</h2>
 
-<h2 id="november-2013">November, 2013:</h2>
+<pre><code>#&gt; cd $ONL/builds/powerpc/installer/legacy
+#&gt; make
+#&gt; cd builds
+#&gt; ls *INSTALLER
+ONL-2.0.0_ONL-OS_2015-12-12.0252-ffce159_PPC_INSTALLER
+#&gt;
+</code></pre>
 
-<p>Initial Proposal at Open Compute Project Engineering Workshop in San Antonio: Read <a href="http://opennetlinux.org/LinuxDistroOCP-November.pdf">slides</a></p>
+<h2 id="example-setup-on-new-debian-8-2-installation">Example setup on new Debian 8.2 installation</h2>
+
+<p>Install sudo and add yourself to the sudoers:</p>
+
+<p>As root:</p>
+
+<p>apt-get install sudo</p>
+
+<p>vi /etc/sudoers.d/username</p>
+
+<p>Add the line:</p>
+
+<p>username    ALL=(ALL:ALL) ALL</p>
+
+<p>Add the docker key:</p>
+
+<p>sudo apt-key adv &ndash;keyserver hkp://p80.pool.sks-keyservers.net:80 &ndash;recv-keys 58118E89F3A912897C070ADBF76221572C52609D</p>
+
+<p>gpg: key 2C52609D: public key &ldquo;Docker Release Tool (releasedocker) <a href="mailto:docker@docker.com">docker@docker.com</a>&rdquo; imported
+gpg: Total number processed: 1
+gpg:               imported: 1  (RSA: 1)</p>
+
+<p>Install necessary items, make, binfmt-support and apt-transport-https (for docker):</p>
+
+<p>sudo apt-get install apt-transport-https make binfmt-support</p>
+
+<p>Add the docker repository to your system:</p>
+
+<p>sudo vi /etc/apt/sources.list.d/docker.list</p>
+
+<p>Add the following line to the file:</p>
+
+<p>deb <a href="https://apt.dockerproject.org/repo">https://apt.dockerproject.org/repo</a> debian-jessie main</p>
+
+<p>Install Docker:</p>
+
+<p>sudo apt-get update</p>
+
+<p>sudo apt-get install docker-engine</p>
+
+<p>Test Docker:</p>
+
+<p>sudo docker run hello-world</p>
+
+<p>Unable to find image &lsquo;hello-world:latest&rsquo; locally
+latest: Pulling from library/hello-world
+b901d36b6f2f: Pull complete
+0a6ba66e537a: Pull complete
+Digest: sha256:8be990ef2aeb16dbcb9271ddfe2610fa6658d13f6dfb8bc72074cc1ca36966a7
+Status: Downloaded newer image for hello-world:latest</p>
+
+<p>Hello from Docker.
+This message shows that your installation appears to be working correctly.</p>
+
+<p>Add yourself to the docker group:</p>
+
+<p>sudo gpasswd -a snoble docker</p>
+
+<p>Adding user snoble to group docker</p>
+
+<p>logout and log back in for the group to take effect:</p>
+
+<p>Clone the OpenNetworkLinux repository:</p>
+
+<p>git clone <a href="https://github.com/opencomputeproject/OpenNetworkLinux.git">https://github.com/opencomputeproject/OpenNetworkLinux.git</a></p>
+
+<p>Cloning into &lsquo;OpenNetworkLinux&rsquo;&hellip;
+Checking connectivity&hellip; done.</p>
+
+<p>Build OpenNetworkLinux:</p>
+
+<pre><code>#&gt; cd OpenNetworkLinux/
+#&gt; make docker
+#&gt; Pulling opennetworklinux/builder7:1.0…
+</code></pre>
+
+<p>Or:</p>
+
+<pre><code>#&gt; docker/tools/onlbuilder
+#&gt; source setup.env
+#&gt; apt-cacher-ng
+#&gt; make onl-x86 onl-ppc
+</code></pre>
 
 
 			<aside class="copyright" role="note">
@@ -467,7 +614,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://ocp.opennetlinux.org/license/" title="Open Network Linux - License">
+      <a href="http://ocp.opennetlinux.org/documentation/BootProcess/" title="Open Network Linux - Documentation - Boot Process">
         <span class="direction">
           Previous
         </span>
@@ -477,7 +624,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Open Network Linux - License
+              Open Network Linux - Documentation - Boot Process
             </div>
           </div>
         </div>
@@ -487,14 +634,14 @@
 
   <div class="next">
   
-      <a href="http://ocp.opennetlinux.org/wedge/" title="Open Network Linux - Getting Started With The Wedge">
+      <a href="http://ocp.opennetlinux.org/documentation/GettingStarted/" title="Open Network Linux - Documentation - Getting Started">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Open Network Linux - Getting Started With The Wedge
+              Open Network Linux - Documentation - Getting Started
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

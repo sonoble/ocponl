@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wedges on Open Network Linux</title>
-    <link>http://sonoble.github.io/onlocp/wedge/</link>
+    <link>http://ocp.opennetlinux.org/wedge/</link>
     <description>Recent content in Wedges on Open Network Linux</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 19 Jul 2016 00:11:02 +0100</lastBuildDate>
-    <atom:link href="http://sonoble.github.io/onlocp/wedge/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ocp.opennetlinux.org/wedge/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Open Network Linux - Getting Started With The Wedge</title>
-      <link>http://sonoble.github.io/onlocp/wedge/</link>
+      <link>http://ocp.opennetlinux.org/wedge/</link>
       <pubDate>Tue, 19 Jul 2016 00:11:02 +0100</pubDate>
       
-      <guid>http://sonoble.github.io/onlocp/wedge/</guid>
+      <guid>http://ocp.opennetlinux.org/wedge/</guid>
       <description>
 
 &lt;ul&gt;

@@ -8,18 +8,18 @@
   <head lang="en-us">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
-    <title>Open Network Linux Blog - Open Network Linux</title>
+    <title> - Open Network Linux</title>
     <meta name="generator" content="Hugo 0.16" />
 
     
     <meta name="description" content="A material design theme for documentations.">
     
-    <link rel="canonical" href="http://ocp.opennetlinux.org/blog/">
+    <link rel="canonical" href="http://ocp.opennetlinux.org/documentation/GettingStartedWedge/">
     
     <meta name="author" content="Digitalcraftsman">
     
 
-    <meta property="og:url" content="http://ocp.opennetlinux.org/blog/">
+    <meta property="og:url" content="http://ocp.opennetlinux.org/documentation/GettingStartedWedge/">
     <meta property="og:title" content="Open Network Linux">
     <meta property="og:image" content="http://ocp.opennetlinux.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="Open Network Linux">
@@ -96,7 +96,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Open Network Linux Blog
+        
       </div>
     </div>
 
@@ -285,14 +285,11 @@
 
 
 
-<a class="current" title="Blog" href="http://ocp.opennetlinux.org/blog/">
+<a  title="Blog" href="http://ocp.opennetlinux.org/blog/">
 	
 	Blog
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
   
 </li>
@@ -366,89 +363,176 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Open Network Linux Blog </h1>
+			<h1> </h1>
 
 			
 
-<h2 id="june-28th-2016">June 28th, 2016:</h2>
+<h2 id="getting-started-with-the-accton-wedge">Getting Started With the Accton Wedge</h2>
 
-<p>Added support for Accton AS5512 (Nephos/MediaTek switch), updated disk partitioning and started providing OpenNSL packages.</p>
+<p>To install and run ONL on the Accton Wedge you will need ONIE and
+the ONL wedge installer binary. Relevant pointers can be found at
+<a href="https://opennetlinux.org/wedge">https://opennetlinux.org/wedge</a></p>
 
-<h2 id="may-27th-2016">May 27th, 2016:</h2>
+<p>Once installed, ONL has a default account (&ldquo;root&rdquo;) with a default password
+(&ldquo;onl&rdquo;).  The network interface is disabled by default so that you can change
+the root password before the system comes up.  You will need to enable the
+network interface before you can run the FBOSS agent.</p>
 
-<p>Added support for Wedge 100: updated Wedge <a href="http://opennetlinux.org/binaries/latest-wedge-2.0.installer">purpose built image </a>to support Wedge 100 and provided <a href="http://opennetlinux.org/binaries/accton-wedge/onie-recovery-x86-64-facebook-wedge100-r0.iso">ONIE installer</a> for Wedge 100.</p>
+<p>FBOSS is installed and set to run the configuration created for a OCP ONL
+on Wedge Demo.  This configuration sets up the first physical QSFP port of
+the wedge as 4 10G ports (via a break out cable) and configures vlans and
+ip addresses on them.</p>
 
-<h2 id="february-20th-2016">February 20th, 2016:</h2>
+<h2 id="onie-manual-install">ONIE Manual Install</h2>
 
-<p>Added support for Dell Z9100-ON and updated documentation on building to include example from <a href="https://opennetlinux.org/docs/build">clean Debian 8 install</a>.</p>
+<p>If your Accton Wedge does not have ONIE installed, you will need to install
+it before you can proceed.</p>
 
-<h2 id="january-31st-2016">January 31st, 2016:</h2>
+<p>1) Download the ONIE rescue image from <a href="http://opennetlinux.org/binaries/accton-wedge/onie-recovery-x86_64-accton_wedge_16x-r0.iso">http://opennetlinux.org/binaries/accton-wedge/onie-recovery-x86_64-accton_wedge_16x-r0.iso</a></p>
 
-<p>Added binaries and updated documentation for the OCP OpenNetworkLinux repository. Binary links are named <a href="http://opennetlinux.org/binaries/latest-2.0-AMD64.installer">latest-2.0-AMD64.installer</a> and <a href="http://opennetlinux.org/binaries/latest-2.0-PPC.installer">latest-2.0-PPC.installer</a></p>
+<p>2) Burn the image onto a USB (a USB with a minimum size of 256M is necessary)</p>
 
-<h2 id="january-28th-2016">January 28th, 2016:</h2>
+<p>3) Insert the USB into the front USB port on the Wedge</p>
 
-<p>OpenNetworkLinux has officially moved to the Open Compute Project github repository at <a href="http://github.com/opencomputeproject/OpenNetworkLinux">github.com/opencomputeproject/OpenNetworkLinux</a></p>
+<p>4) Attach a serial terminal to the wedge</p>
 
-<h2 id="january-4th-2016">January 4th, 2016:</h2>
+<p>5) Power on the wedge and wait for the BMC to finish booting</p>
 
-<p>Added support for Accton 7712, 7716, 5812, 5812, Interface Masters Niagara 29xx, WNC sst1</p>
+<p>6) Log into the bmc with the login: root password: 0penBmc</p>
 
-<h2 id="october-26th-2015">October 26th, 2015:</h2>
+<p>7) Attach to the wedge microserver using the command sol.sh</p>
 
-<p>Added support for Quanta LY6 and LY8 Rangeley based switches</p>
+<p>8) If the microserver shows the BIOS status screen press F2 to go to the BIOS
+configuration menu</p>
 
-<h2 id="october-2-2015">October 2, 2015:</h2>
+<p>9) In cases where the wedge microserver has already booted into the default
+linux installation, you will need to either reboot (if possible) or hit ctrl-x, exiting to the BMC and issue the &ldquo;wedge_power reset&rdquo; command to power-cycle the
+microserver, run sol.sh again and hit F2 when the BIOS status screen appears</p>
 
-<p>Added support for Edge-Core AS5712, fixes for persist.</p>
+<p>10) One you are in the BIOS configuration, move to the boot screen and change
+the boot mode from UEFI to Legacy</p>
 
-<h2 id="may-19-2015">May 19, 2015: </h2>
+<p>11) In the boot device list, make sure that the USB is set to #1</p>
 
-<p><a href="https://groups.google.com/forum/#!topic/opennetworklinux/DE43vdJrPh8">Added Support for Dell S6000-ON and Dell S4048-ON switches</a></p>
+<p>12) Hit esc-0 to or F10 to save and exit the configuration</p>
 
-<h2 id="march-12-2015">March 12, 2015:</h2>
+<p>13) The system will now boot from the ONIE rescue USB</p>
 
-<p>Blog <a href="http://www.bigswitch.com/blog/2015/03/09/attention-world-the-network-is-now-open">Attention World: The Network is Now Open!</a></p>
+<p>14) When the ONIE Grub window appears, choose &ldquo;Embed ONIE&rdquo;</p>
 
-<h2 id="march-10-2015">March 10, 2015 </h2>
+<p>15) ONIE will be installed on the system and the system will automatically
+reboot</p>
 
-<p><a href="http://www.bigswitch.com/press-releases/2015/03/10/open-compute-project-ocp-formally-accepts-open-network-linux-onl">Open Network Linux</a> formally accepted into <a href="http://opencompute.org/">Open Compute</a> as a Project</p>
+<p>16) <em>IMPORTANT</em> Remove the USB from the system before proceeding to the ONL install</p>
 
-<h2 id="november-24-2014">November 24, 2014: </h2>
+<h2 id="onl-manual-install">ONL Manual Install</h2>
 
-<p><a href="https://groups.google.com/forum/#!searchin/opennetworklinux/open$20route$20cache/opennetworklinux/rgrYrYhzWJg/b-re3e-3Dx0J">Announce: Open Route Cache and ONL Platform code committed to ONL</a></p>
+<p>1) Attach a serial terminal to the wedge</p>
 
-<h2 id="may-8-2014">May 8, 2014:</h2>
+<p>2) Boot switch and choose &ldquo;ONIE: Rescue&rdquo; to go to ONIE&rdquo;s interactive mode</p>
 
-<p>Gave an ONL <a href="http://opennetlinux.org/OCP-May-ONL-final.pdf">Update</a> at Open Compute Engineering Workshop in San Antonio</p>
+<p>3) From the ONIE# prompt run &ldquo;install_url <a href="http://opennetlinux.org/binaries/latest-wedge-2.0.installer&quot;">http://opennetlinux.org/binaries/latest-wedge-2.0.installer&quot;</a></p>
 
-<h2 id="april-16-2014">April 16, 2014:</h2>
+<p>4) Wait for the install to finish and the system to reboot</p>
 
-<p>Hosted Webinar on <a href="http://opennetlinux.org/community#brighttalk">Open Network Linux</a>, SDN, and the Indigo OpenFlow agent.</p>
+<p>5) Once the onl login prompt appears login with the username root and the
+password &ldquo;onl&rdquo;</p>
 
-<h2 id="april-4-2014">April 4, 2014:</h2>
+<p>6) Configure the ma1 interface either via dhcp (dhclient ma1) or manually</p>
 
-<p>Added preliminary support for <a href="http://opennetlinux.org/hcl">Accton and DNI boxes</a>.</p>
+<p>7) Install fboss using the commands</p>
 
-<h2 id="march-20-2014">March 20, 2014:</h2>
+<pre><code>#&gt; apt-get update
+#&gt; apt-get install fboss
+</code></pre>
 
-<p>This website goes live!</p>
+<p>8) From the command prompt you can start fboss by using the command
+&ldquo;service fboss_wedge_agent start&rdquo;</p>
 
-<h2 id="march-3-2014">March 3, 2014:</h2>
+<p>9) The first time you start the fboss_wedge_agent service it will download
+the OpenNSL library from the Broadcom github account.</p>
 
-<p>Rob Sherwood presents ONL tutorial at Open Network Summit 2014: <a href="http://opennetlinux.org/community">Watch Video</a></p>
+<p>10) Once the library is installed, fboss_wedge_agent will start, using the
+default configuration located at /etc/fboss/ocp-demo.json</p>
 
-<h2 id="january-27-2014">January 27, 2014:</h2>
+<p>11) You can confirm that the fboss_wedge_agent is running by issuing the
+command &ldquo;service fboss_wedge_agent status&rdquo;</p>
 
-<p>Presentation and Demo at Open Compute Project: Read <a href="http://opennetlinux.org/OCP_2014_eng_workshop.pdf">slides</a> from talk.</p>
+<p>12) If fboss is running, you should see &ldquo;[ ok ] fboss_wedge_agent is running.&rdquo;</p>
 
-<h2 id="january-26-2014">January 26, 2014:</h2>
+<p>13) You can now execute the fboss_route.py script and configure the system.</p>
 
-<p>Code released on <a href="http://github.com/opennetworklinux/ONL">github.com/opennetworklinux/ONL</a></p>
+<h2 id="modifying-the-fboss-wedge-agent-configuration">Modifying The fboss_wedge_agent configuration</h2>
 
-<h2 id="november-2013">November, 2013:</h2>
+<p>In the /etc/init.d/fboss_wedge_agent script, you will locate a section where
+the configuration file &ldquo;FBOSS_DAEMON_OPTIONS&rdquo; is set:</p>
 
-<p>Initial Proposal at Open Compute Project Engineering Workshop in San Antonio: Read <a href="http://opennetlinux.org/LinuxDistroOCP-November.pdf">slides</a></p>
+<p>OCP_DEMO=&ldquo;-config /etc/fboss/ocp-demo.json&rdquo;
+SAMPLE1=&ldquo;-config /etc/fboss/sample1.json&rdquo;
+SAMPLE2=&ldquo;-config /etc/fboss/sample2.json&rdquo;
+SAMPLE3=&ldquo;-config /etc/fboss/sample3.json&rdquo;
+FBOSS_DAEMON_OPTIONS=$OCP_DEMO</p>
+
+<p>The sample configurations are documented here: <a href="https://github.com/facebook/fboss/tree/master/fboss/agent/configs">https://github.com/facebook/fboss/tree/master/fboss/agent/configs</a></p>
+
+<p>To change the configuration, simply change the variable from $OCP_DEMO to $SAMPLE1/2/3 or add your own configuration and set the variable to call it.</p>
+
+<p>Expected output (you can also see videos at <a href="https://opennetlinux.org/wedge">https://opennetlinux.org/wedge</a>)</p>
+
+<p>ONIE:</p>
+
+<pre><code>    ONIE: Using DHCPv4 addr: eth0: 10.7.1.10 / 255.254.0.0
+    discover: installer mode detected.  Running installer.
+
+    Please press Enter to activate this console. ONIE: Using DHCPv4 addr: eth0: 10.7.1.10 / 255.254.0.0
+    ONIE: Starting ONIE Service Discovery
+
+    To check the install status inspect /var/log/onie.log.
+    Try this:  tail -f /var/log/onie.log
+</code></pre>
+
+<p>Now press RETURN here to jump into ONIE&rdquo;s manual installer mode.  You should see:</p>
+
+<pre><code>    ** Installer Mode Enabled **
+
+    ONIE:/ # 
+</code></pre>
+
+<p>Then simply download the latest ONL wedge installer from the website and run it.</p>
+
+<pre><code>    ONIE:/ # install_url http://opennetlinux.org/binaries/latest-wedge-2.0.installer
+
+    Connecting to opennetlinux.org (107.170.237.53:80)
+    Open Network Installer running under ONIE.
+    Installing Open Network Linux Software Image (ONL-2.0.0_ONL-OS_2016-02-12.2304-b9b7e50_AMD64.swi)...
+    Installation finished. No error reported.
+    Install finished.  Rebooting to Open Network Linux.
+    ...
+
+    Connecting tty=ttyS1 with /sbin/pgetty
+
+    Debian GNU/Linux 8 localhost ttyS1
+
+    localhost login: root
+    Password:
+    Linux localhost 3.2.65-1+deb7u2-OpenNetworkLinux #1 SMP Fri Feb 12 23:10:15 UTC 2016 x86_64
+
+    root@localhost:~# apt-get update
+    root@localhost:~# apt-get install fboss
+    WARNING: The following packages cannot be authenticated!
+    folly wangle fbthrift fboss-py fboss-core fboss
+    Install these packages without verification? [y/N] y
+
+    root@localhost:~# service fboss_wedge_agent start
+    [....] Starting  Facebook FBOSS agent: fboss_wedge_agent
+    Error: OpenNSL library not found, attempting to grab from GitHub
+    Saving to: ‘/usr/local/lib/libopennsl.so.1’
+
+    OpenNSL library succesfully installed
+    [ ok --- Loading   linux-kernel-bde   linux-user-bde   linux-bcm-knet  ; Creating devices .
+    root@localhost:~# service fboss_wedge_agent status
+    [ ok ] fboss_wedge_agent is running.
+</code></pre>
 
 
 			<aside class="copyright" role="note">
@@ -467,7 +551,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://ocp.opennetlinux.org/license/" title="Open Network Linux - License">
+      <a href="http://ocp.opennetlinux.org/" title="Open Network Linux">
         <span class="direction">
           Previous
         </span>
@@ -477,7 +561,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Open Network Linux - License
+              Open Network Linux
             </div>
           </div>
         </div>
@@ -487,14 +571,14 @@
 
   <div class="next">
   
-      <a href="http://ocp.opennetlinux.org/wedge/" title="Open Network Linux - Getting Started With The Wedge">
+      <a href="http://ocp.opennetlinux.org/documentation/PersistWorkflow/" title="">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Open Network Linux - Getting Started With The Wedge
+              
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

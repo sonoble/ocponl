@@ -8,18 +8,18 @@
   <head lang="en-us">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
-    <title>Open Network Linux Blog - Open Network Linux</title>
+    <title>Open Network Linux - Documentation - Getting Started - Open Network Linux</title>
     <meta name="generator" content="Hugo 0.16" />
 
     
     <meta name="description" content="A material design theme for documentations.">
     
-    <link rel="canonical" href="http://ocp.opennetlinux.org/blog/">
+    <link rel="canonical" href="http://ocp.opennetlinux.org/documentation/GettingStarted/">
     
     <meta name="author" content="Digitalcraftsman">
     
 
-    <meta property="og:url" content="http://ocp.opennetlinux.org/blog/">
+    <meta property="og:url" content="http://ocp.opennetlinux.org/documentation/GettingStarted/">
     <meta property="og:title" content="Open Network Linux">
     <meta property="og:image" content="http://ocp.opennetlinux.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="Open Network Linux">
@@ -96,7 +96,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Open Network Linux Blog
+        Open Network Linux - Documentation - Getting Started
       </div>
     </div>
 
@@ -285,14 +285,11 @@
 
 
 
-<a class="current" title="Blog" href="http://ocp.opennetlinux.org/blog/">
+<a  title="Blog" href="http://ocp.opennetlinux.org/blog/">
 	
 	Blog
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
   
 </li>
@@ -366,89 +363,211 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Open Network Linux Blog </h1>
+			<h1>Open Network Linux - Documentation - Getting Started </h1>
 
 			
 
-<h2 id="june-28th-2016">June 28th, 2016:</h2>
+<h2 id="getting-started">Getting Started</h2>
 
-<p>Added support for Accton AS5512 (Nephos/MediaTek switch), updated disk partitioning and started providing OpenNSL packages.</p>
+<p>To install and run ONL you need is an ONL Compatible switch (see
+<a href="http://opennetlinux.org/hcl)">http://opennetlinux.org/hcl)</a> and the ONL installer binary.  Every
+ONL compatible switch ships with the ONIE installer environment installed
+which gives you a multitude of ways of getting ONL installed on your switch.</p>
 
-<h2 id="may-27th-2016">May 27th, 2016:</h2>
+<p>We document the easiest ways here (manual install via console and NFS)
+but the <a href="http://onie.org">http://onie.org</a> website contains a variety of installation
+methods including via USB, over the network, and even via ssh.</p>
 
-<p>Added support for Wedge 100: updated Wedge <a href="http://opennetlinux.org/binaries/latest-wedge-2.0.installer">purpose built image </a>to support Wedge 100 and provided <a href="http://opennetlinux.org/binaries/accton-wedge/onie-recovery-x86-64-facebook-wedge100-r0.iso">ONIE installer</a> for Wedge 100.</p>
+<p>The resulting installation has a default account (&ldquo;root&rdquo;) with a default
+password (&ldquo;onl&rdquo;).  The network interface is disabled by default so that
+you can change the root password before the system comes up.</p>
 
-<h2 id="february-20th-2016">February 20th, 2016:</h2>
+<h2 id="onl-manual-install">ONL Manual Install</h2>
 
-<p>Added support for Dell Z9100-ON and updated documentation on building to include example from <a href="https://opennetlinux.org/docs/build">clean Debian 8 install</a>.</p>
+<p>1) Attach a serial terminal to the switch
+2) Boot switch and hit return to go to ONIE&rdquo;s interactive mode
+    2a) You must wait until after uboot has finished loading; if you
+        accidentally interupt uboot first, just run <code>boot</code> to continue
+        booting into ONIE
+3) Download the ONL installer from <a href="http://opennetlinux.org">http://opennetlinux.org</a> and run it by hand</p>
 
-<h2 id="january-31st-2016">January 31st, 2016:</h2>
+<p>Expected Serial Console Output (from an QuantaMesh LB9, other switches ouput will vary):</p>
 
-<p>Added binaries and updated documentation for the OCP OpenNetworkLinux repository. Binary links are named <a href="http://opennetlinux.org/binaries/latest-2.0-AMD64.installer">latest-2.0-AMD64.installer</a> and <a href="http://opennetlinux.org/binaries/latest-2.0-PPC.installer">latest-2.0-PPC.installer</a></p>
+<pre><code>    U-Boot 2010.12 (Oct 08 2013 - 17:11:37)
 
-<h2 id="january-28th-2016">January 28th, 2016:</h2>
+    CPU:   8541, Version: 1.1, (0x80720011)
+    Core:  Unknown, Version: 2.0, (0x80200020)
+    Clock Configuration:
+           CPU0:825  MHz, 
+           CCB:330  MHz,
+           DDR:165  MHz (330 MT/s data rate), LBC:41.250 MHz
+    CPM:   330 MHz
+    L1:    D-cache 32 kB enabled
+           I-cache 32 kB enabled
+    I2C:   ready
+    DRAM:  Detected UDIMM TS128MSD64V3A
+    Detected UDIMM(s)
+    DDR: 1 GiB (DDR1, 64-bit, CL=2.5, ECC off)
+    FLASH: 64 MiB
+    L2:    256 KB enabled
 
-<p>OpenNetworkLinux has officially moved to the Open Compute Project github repository at <a href="http://github.com/opencomputeproject/OpenNetworkLinux">github.com/opencomputeproject/OpenNetworkLinux</a></p>
+    LB9 U-Boot
+      Product Name          : LB9
+      Model Name            : QUANTA LB9
+      Serial Number         : QTFCA63280001
+      Part Number           : 1LB9BZZ0STQ
+      Label Revision Number : 1
+      Hardware Version      : 1.0
+      Platform Version      : 0xb901 
+      Release Date          : 2013/7/5
+      MAC Address           : 08:9e:01:ce:bd:2d
+    Set ethaddr MAC address = 08:9e:01:ce:bd:2d
+    In:    serial
+    Out:   serial
+    Err:   serial
+    Net:   TSEC0: PHY is Broadcom BCM5461S (2060c1)
+    TSEC0
+    IDE:   Bus 0: OK 
+      Device 0: Model: 4GB CompactFlash Card Firm: Ver6.04J Ser#: CDE207331D0100001484
+                Type: Hard Disk
+                Capacity: 3811.9 MB = 3.7 GB (7806960 x 512)
+    Hit any key to stop autoboot:  0 
+    ## Error: &quot;nos_bootcmd&quot; not defined
+    Loading Open Network Install Environment ...
+    Platform: powerpc-quanta_lb9-r0
+    Version : 1.5.2-20131008154633
+    WARNING: adjusting available memory to 30000000
+    ## Booting kernel from Legacy Image at 04000000 ...
+       Image Name:   quanta_lb9-r0
+       Image Type:   PowerPC Linux Multi-File Image (gzip compressed)
+       Data Size:    3479390 Bytes = 3.3 MiB
+       Load Address: 00000000
+       Entry Point:  00000000
+       Contents:
+          Image 0: 2762740 Bytes = 2.6 MiB
+          Image 1: 707380 Bytes = 690.8 KiB
+          Image 2: 9254 Bytes = 9 KiB
+       Verifying Checksum ... OK
+    ## Loading init Ramdisk from multi component Legacy Image at 04000000 ...
+    ## Flattened Device Tree from multi component Image at 04000000
+       Booting using the fdt at 0x434f378
+       Uncompressing Multi-File Image ... OK
+       Loading Ramdisk to 2ff53000, end 2ffffb34 ... OK
+       Loading Device Tree to 03ffa000, end 03fff425 ... OK
+    Cannot reserve gpages without hugetlb enabled
+    setup_arch: bootmem
+    quanta_lb9_setup_arch()
+    arch: exit
 
-<h2 id="january-4th-2016">January 4th, 2016:</h2>
+    ONIE: Using DHCPv4 addr: eth0: 10.7.1.10 / 255.254.0.0
+    discover: installer mode detected.  Running installer.
 
-<p>Added support for Accton 7712, 7716, 5812, 5812, Interface Masters Niagara 29xx, WNC sst1</p>
+    Please press Enter to activate this console. ONIE: Using DHCPv4 addr: eth0: 10.7.1.10 / 255.254.0.0
+    ONIE: Starting ONIE Service Discovery
 
-<h2 id="october-26th-2015">October 26th, 2015:</h2>
+    To check the install status inspect /var/log/onie.log.
+    Try this:  tail -f /var/log/onie.log
+</code></pre>
 
-<p>Added support for Quanta LY6 and LY8 Rangeley based switches</p>
+<p>Now press RETURN here to jump into ONIE&rdquo;s manual installer mode.  You should see:</p>
 
-<h2 id="october-2-2015">October 2, 2015:</h2>
+<pre><code>    ** Installer Mode Enabled **
 
-<p>Added support for Edge-Core AS5712, fixes for persist.</p>
+    ONIE:/ # 
+</code></pre>
 
-<h2 id="may-19-2015">May 19, 2015: </h2>
+<p>Then simply download the latest ONL installer for the appropriate
+architecture (powerpc or amd64) from the website and run it.</p>
 
-<p><a href="https://groups.google.com/forum/#!topic/opennetworklinux/DE43vdJrPh8">Added Support for Dell S6000-ON and Dell S4048-ON switches</a></p>
+<pre><code>    ONIE:/ # install_url http://opennetlinux.org/binaries/latest-$ARCH.installer
 
-<h2 id="march-12-2015">March 12, 2015:</h2>
+    Connecting to opennetlinux.org (107.170.237.53:80)
+    Open Network Installer running under ONIE.
+    Installer Version: Open Network Linux e148b7a (powerpc.all,2014.05.21.18.57,e148b7a90131c07eb8d49f74316baf8f2aae92c6)
+    Detected platform: powerpc-quanta-lb9-r0
+    Installing in standalone mode.
+    Unpacking Open Network Linux installer files...
+    onl.powerpc-as4600-54t.loader
+    onl.powerpc-as5600-52x.loader
+    ...
+</code></pre>
 
-<p>Blog <a href="http://www.bigswitch.com/blog/2015/03/09/attention-world-the-network-is-now-open">Attention World: The Network is Now Open!</a></p>
+<p>Note:</p>
 
-<h2 id="march-10-2015">March 10, 2015 </h2>
+<p>1) If there is different OS(other than ONL) running on the switch.
+Then halt the booting process at U-boot mode, Then check for the ONIE<br />
+details in the environment(=&gt; printenv). Open the ONIE in rescue mode,
+while ONIE has many different installation modes,
+we recommend the rescue mode for doing a manual (read: via console)
+because it disables the automatic ONIE server discovery.
+Then run (=&gt; run onie_rescue) command to take you to the ONIE environment.</p>
 
-<p><a href="http://www.bigswitch.com/press-releases/2015/03/10/open-compute-project-ocp-formally-accepts-open-network-linux-onl">Open Network Linux</a> formally accepted into <a href="http://opencompute.org/">Open Compute</a> as a Project</p>
+<p>2) For development purpose, to load freshly build ONL installer from directly ONIE.
+Run a http server from the build machine (example:python -m SimpleHTTPServer 8000) and access it as,</p>
 
-<h2 id="november-24-2014">November 24, 2014: </h2>
+<pre><code>example: ONIE:/ # install_url http://buildmachineIPAddress:/path/to/directory/onl-09b7bba-powerpc-all.2016.02.05.05.17.installer # update for specific file/date/build
+</code></pre>
 
-<p><a href="https://groups.google.com/forum/#!searchin/opennetworklinux/open$20route$20cache/opennetworklinux/rgrYrYhzWJg/b-re3e-3Dx0J">Announce: Open Route Cache and ONL Platform code committed to ONL</a></p>
+<p>Also, you can use install via scp with two steps,</p>
 
-<h2 id="may-8-2014">May 8, 2014:</h2>
+<pre><code>   example: ONIE:/ # scp [username]@buildmachineIPAddress:/path/to/directory/onl-09b7bba-powerpc-all.2016.02.05.05.17.installer  ONL.installer # update for specific file/date/build
+            ONIE:/ # sh ONL.installer
+</code></pre>
 
-<p>Gave an ONL <a href="http://opennetlinux.org/OCP-May-ONL-final.pdf">Update</a> at Open Compute Engineering Workshop in San Antonio</p>
+<h2 id="onl-nfs-root-directory">ONL NFS Root Directory</h2>
 
-<h2 id="april-16-2014">April 16, 2014:</h2>
+<p>Given that the default installation of ONL does not persist files across
+reboots (this is intentional &ndash; flash disks should not be written to
+as often as spinning disks), it is sometimes useful to have a normally
+writable, larger disk available for the switch.  Enter the NFS root
+directory which enables a switch to boot ONL from a remote NFS partition.
+While it is possible to simply fetch the SWI file from an NFS server
+(keeping the same non-persisted behavior), the much more useful feature
+is to have the root file system NFS hosted.</p>
 
-<p>Hosted Webinar on <a href="http://opennetlinux.org/community#brighttalk">Open Network Linux</a>, SDN, and the Indigo OpenFlow agent.</p>
+<p>To enable NFS mounted root partition:</p>
 
-<h2 id="april-4-2014">April 4, 2014:</h2>
+<p>1) Run the ONL installer normally (e.g., via the manual mode per above) so that the ONL
+    loader is installed.</p>
 
-<p>Added preliminary support for <a href="http://opennetlinux.org/hcl">Accton and DNI boxes</a>.</p>
+<p>2) Edit /mnt/flash/boot-config, enable DHCP, and change the SWI variable to point to a URL of the form &ldquo;nfs://$ip[:port]/path/to/directory/&ldquo;.  For example, on my machine, this looks like:</p>
 
-<h2 id="march-20-2014">March 20, 2014:</h2>
+<pre><code> # cat /mnt/flash/boot-config
+ SWI=nfs://10.6.0.4/home/robs/export/ly2-1/  # trailing '/' is critical
+ NETAUTO=dhcp                                # optional, but likely what you want
+ NETDEV=ma1                                  # leave untouched
+</code></pre>
 
-<p>This website goes live!</p>
+<p>3) On server $ip, in /path/to/directory, unzip a target .SWI file, e.g.,</p>
 
-<h2 id="march-3-2014">March 3, 2014:</h2>
+<pre><code> # wget http://opennetlinux.org/binaries/latest.swi
+ # unzip latest.swi
+</code></pre>
 
-<p>Rob Sherwood presents ONL tutorial at Open Network Summit 2014: <a href="http://opennetlinux.org/community">Watch Video</a></p>
+<p>4) unsquash the compressed root file system as directory &lsquo;rootfs-$arch&rsquo;:</p>
 
-<h2 id="january-27-2014">January 27, 2014:</h2>
+<pre><code> # unsquashfs -d rootfs-$arch rootfs-$arch.sqsh  # e.g., $arch = 'powerpc'h
+</code></pre>
 
-<p>Presentation and Demo at Open Compute Project: Read <a href="http://opennetlinux.org/OCP_2014_eng_workshop.pdf">slides</a> from talk.</p>
+<p>Now reboot your switch and it should boot automatically into the NFS root file system.
+Note that the SWI structure is still maintained:</p>
 
-<h2 id="january-26-2014">January 26, 2014:</h2>
+<pre><code> robs@sbs3:~/export/ly2-1$ ls -l
+ total 109048
+ -rw-r--r--  1 robs __USERS__   3382017 Nov  4 22:28 initrd-powerpc
+ -rwxr-xr-x  1 robs __USERS__   6942960 Nov  4 22:28 kernel-85xx*
+ -rw-r--r--  1 robs __USERS__ 101322752 Nov  4 22:28 rootfs-powerpc.sqsh
+ drwxrwxr-x 22 robs __USERS__      4096 Jan  2 18:21 rootfs-powerpc/
+ -rw-r--r--  1 robs __USERS__       100 Nov  4 22:29 version
+</code></pre>
 
-<p>Code released on <a href="http://github.com/opennetworklinux/ONL">github.com/opennetworklinux/ONL</a></p>
+<p>That is:
+* &lsquo;kernel-85xx&rsquo; is the kernel image
+* &lsquo;initrd-powerpc&rsquo; is the initial RAM disk image
+* &lsquo;rootfs-powerpc&rsquo; is the base of the root filesystem
+* &lsquo;version&rsquo; is a string that identifies this SWI</p>
 
-<h2 id="november-2013">November, 2013:</h2>
-
-<p>Initial Proposal at Open Compute Project Engineering Workshop in San Antonio: Read <a href="http://opennetlinux.org/LinuxDistroOCP-November.pdf">slides</a></p>
+<p>Note: If NFS root squash is set on the server, you might get a permission error while booting. To fix this, you can set &lsquo;no_disable_squash&rsquo; in /etc/exports. However, be aware of the security implications as root on a client machine will now have the same access privilege on the files as root on the NFS server.</p>
 
 
 			<aside class="copyright" role="note">
@@ -467,7 +586,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://ocp.opennetlinux.org/license/" title="Open Network Linux - License">
+      <a href="http://ocp.opennetlinux.org/documentation/Building/" title="Open Network Linux - Documentation - Building">
         <span class="direction">
           Previous
         </span>
@@ -477,7 +596,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Open Network Linux - License
+              Open Network Linux - Documentation - Building
             </div>
           </div>
         </div>
@@ -487,14 +606,14 @@
 
   <div class="next">
   
-      <a href="http://ocp.opennetlinux.org/wedge/" title="Open Network Linux - Getting Started With The Wedge">
+      <a href="http://ocp.opennetlinux.org/documentation/SupportedHardware/" title="Open Network Linux - Documentation - HCL">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Open Network Linux - Getting Started With The Wedge
+              Open Network Linux - Documentation - HCL
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

@@ -8,18 +8,18 @@
   <head lang="en-us">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
-    <title>Open Network Linux Blog - Open Network Linux</title>
+    <title> - Open Network Linux</title>
     <meta name="generator" content="Hugo 0.16" />
 
     
     <meta name="description" content="A material design theme for documentations.">
     
-    <link rel="canonical" href="http://ocp.opennetlinux.org/blog/">
+    <link rel="canonical" href="http://ocp.opennetlinux.org/documentation/PersistWorkflow/">
     
     <meta name="author" content="Digitalcraftsman">
     
 
-    <meta property="og:url" content="http://ocp.opennetlinux.org/blog/">
+    <meta property="og:url" content="http://ocp.opennetlinux.org/documentation/PersistWorkflow/">
     <meta property="og:title" content="Open Network Linux">
     <meta property="og:image" content="http://ocp.opennetlinux.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="Open Network Linux">
@@ -96,7 +96,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Open Network Linux Blog
+        
       </div>
     </div>
 
@@ -285,14 +285,11 @@
 
 
 
-<a class="current" title="Blog" href="http://ocp.opennetlinux.org/blog/">
+<a  title="Blog" href="http://ocp.opennetlinux.org/blog/">
 	
 	Blog
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
   
 </li>
@@ -366,89 +363,68 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Open Network Linux Blog </h1>
+			<h1> </h1>
 
 			
 
-<h2 id="june-28th-2016">June 28th, 2016:</h2>
+<h1 id="rationale">Rationale</h1>
 
-<p>Added support for Accton AS5512 (Nephos/MediaTek switch), updated disk partitioning and started providing OpenNSL packages.</p>
+<p>By default, the ONL file system is NOT persistent, meaning that if you
+reboot, your changes will dissapear (!!).  While this may sound suboptimal
+at first, it does have the incredibly nice property of ensuring that many
+classes of configuration and other problems can go away with a reboot.
+This is particularly nice when you have a switch that may be headless
+(no permanently connected console cable or keyboard).</p>
 
-<h2 id="may-27th-2016">May 27th, 2016:</h2>
+<p>ONL accomplishes this with OverlayFS
+(<a href="https://www.kernel.org/doc/Documentation/filesystems/overlayfs.txt">https://www.kernel.org/doc/Documentation/filesystems/overlayfs.txt</a>).
+As described at <a href="http://opennetlinux.org/docs/bootprocess">http://opennetlinux.org/docs/bootprocess</a>, the ONL
+switch image (.SWI file) contains a read-only root file system image.
+The default ONL root file system is then a copy-on-write (using overlayfs)
+view into that file system image.</p>
 
-<p>Added support for Wedge 100: updated Wedge <a href="http://opennetlinux.org/binaries/latest-wedge-2.0.installer">purpose built image </a>to support Wedge 100 and provided <a href="http://opennetlinux.org/binaries/accton-wedge/onie-recovery-x86-64-facebook-wedge100-r0.iso">ONIE installer</a> for Wedge 100.</p>
+<p>It has the following properites:</p>
 
-<h2 id="february-20th-2016">February 20th, 2016:</h2>
+<ul>
+<li>Any file that is editted/removed/etc is transparently copied into a RAM disk via overlayfs</li>
+<li>Thus, any changes to files appear as you would expect, until a reboot</li>
+<li>Any file that is uneditted remains backed by the /mnt/flash2 file system, so you
+do not need to have enough RAM to store the entire rootfs.  This is important with
+switches that do not have much RAM to begin with.</li>
+</ul>
 
-<p>Added support for Dell Z9100-ON and updated documentation on building to include example from <a href="https://opennetlinux.org/docs/build">clean Debian 8 install</a>.</p>
+<p>That said, ONL does have a provision to persist explicitly marked files
+across a reboot.  This document shows how this works.</p>
 
-<h2 id="january-31st-2016">January 31st, 2016:</h2>
+<h1 id="persisting-files">Persisting Files</h1>
 
-<p>Added binaries and updated documentation for the OCP OpenNetworkLinux repository. Binary links are named <a href="http://opennetlinux.org/binaries/latest-2.0-AMD64.installer">latest-2.0-AMD64.installer</a> and <a href="http://opennetlinux.org/binaries/latest-2.0-PPC.installer">latest-2.0-PPC.installer</a></p>
+<p>Just run <code>/sbin/persist /path/to/file</code> to mark a file as &lsquo;persisted&rsquo;.  This
+file will be saved to the /mnt/flash persistent storage device and automatically
+put back into place on reboot.  Once a file has been persisted, it will always
+be persisted across reboots.  If you really want to unpersist a file, manually remove it from
+&lsquo;/persist/rootfs/path/to/file&rsquo;.</p>
 
-<h2 id="january-28th-2016">January 28th, 2016:</h2>
+<h1 id="under-the-covers">Under the covers</h1>
 
-<p>OpenNetworkLinux has officially moved to the Open Compute Project github repository at <a href="http://github.com/opencomputeproject/OpenNetworkLinux">github.com/opencomputeproject/OpenNetworkLinux</a></p>
+<p>Running <code>/sbin/persist file</code> makes a hardlink of that file, e.g., /foo/bar/baz, to
+/persist/rootfs/foo/bar/baz.</p>
 
-<h2 id="january-4th-2016">January 4th, 2016:</h2>
+<p>The <code>/etc/init.d/restorepersist</code> script runs on bootup and does a number of things:</p>
 
-<p>Added support for Accton 7712, 7716, 5812, 5812, Interface Masters Niagara 29xx, WNC sst1</p>
+<ul>
+<li>Restores the previously saved cpio archive from /mnt/flash/persist/rootfs into both / and /persist/rootfs</li>
+<li>Sets up hard links between /persist/rootfs/foo/bar/baz and /foo/bar/baz</li>
+<li>Starts a <code>watchdir</code> process for changes in /persist/rootfs</li>
+</ul>
 
-<h2 id="october-26th-2015">October 26th, 2015:</h2>
+<p><code>watchdir</code> in turn uses the inotify(3) subsystem to, upon a change, run <code>/sbin/savepersist /persist/rootfs</code>.</p>
 
-<p>Added support for Quanta LY6 and LY8 Rangeley based switches</p>
+<p>And so, any change to a persisted file is noticed by watchdir and saved
+to /mnt/flash in a cpio archive automatically using /sbin/savepersist.</p>
 
-<h2 id="october-2-2015">October 2, 2015:</h2>
+<h1 id="limitations">Limitations</h1>
 
-<p>Added support for Edge-Core AS5712, fixes for persist.</p>
-
-<h2 id="may-19-2015">May 19, 2015: </h2>
-
-<p><a href="https://groups.google.com/forum/#!topic/opennetworklinux/DE43vdJrPh8">Added Support for Dell S6000-ON and Dell S4048-ON switches</a></p>
-
-<h2 id="march-12-2015">March 12, 2015:</h2>
-
-<p>Blog <a href="http://www.bigswitch.com/blog/2015/03/09/attention-world-the-network-is-now-open">Attention World: The Network is Now Open!</a></p>
-
-<h2 id="march-10-2015">March 10, 2015 </h2>
-
-<p><a href="http://www.bigswitch.com/press-releases/2015/03/10/open-compute-project-ocp-formally-accepts-open-network-linux-onl">Open Network Linux</a> formally accepted into <a href="http://opencompute.org/">Open Compute</a> as a Project</p>
-
-<h2 id="november-24-2014">November 24, 2014: </h2>
-
-<p><a href="https://groups.google.com/forum/#!searchin/opennetworklinux/open$20route$20cache/opennetworklinux/rgrYrYhzWJg/b-re3e-3Dx0J">Announce: Open Route Cache and ONL Platform code committed to ONL</a></p>
-
-<h2 id="may-8-2014">May 8, 2014:</h2>
-
-<p>Gave an ONL <a href="http://opennetlinux.org/OCP-May-ONL-final.pdf">Update</a> at Open Compute Engineering Workshop in San Antonio</p>
-
-<h2 id="april-16-2014">April 16, 2014:</h2>
-
-<p>Hosted Webinar on <a href="http://opennetlinux.org/community#brighttalk">Open Network Linux</a>, SDN, and the Indigo OpenFlow agent.</p>
-
-<h2 id="april-4-2014">April 4, 2014:</h2>
-
-<p>Added preliminary support for <a href="http://opennetlinux.org/hcl">Accton and DNI boxes</a>.</p>
-
-<h2 id="march-20-2014">March 20, 2014:</h2>
-
-<p>This website goes live!</p>
-
-<h2 id="march-3-2014">March 3, 2014:</h2>
-
-<p>Rob Sherwood presents ONL tutorial at Open Network Summit 2014: <a href="http://opennetlinux.org/community">Watch Video</a></p>
-
-<h2 id="january-27-2014">January 27, 2014:</h2>
-
-<p>Presentation and Demo at Open Compute Project: Read <a href="http://opennetlinux.org/OCP_2014_eng_workshop.pdf">slides</a> from talk.</p>
-
-<h2 id="january-26-2014">January 26, 2014:</h2>
-
-<p>Code released on <a href="http://github.com/opennetworklinux/ONL">github.com/opennetworklinux/ONL</a></p>
-
-<h2 id="november-2013">November, 2013:</h2>
-
-<p>Initial Proposal at Open Compute Project Engineering Workshop in San Antonio: Read <a href="http://opennetlinux.org/LinuxDistroOCP-November.pdf">slides</a></p>
+<p>You cannot persist any file that is read/used before <code>/etc/rcS.d/S03restorepersist</code> is run, including this script itself.  Also, it is NOT recommended for persisting logging files, e.g., /var/log/*.  While technically this will work, you will likely quickly exceed the write cycle limit of the underlying flash memory.  Better to use a syslog server.</p>
 
 
 			<aside class="copyright" role="note">
@@ -467,7 +443,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://ocp.opennetlinux.org/license/" title="Open Network Linux - License">
+      <a href="http://ocp.opennetlinux.org/documentation/GettingStartedWedge/" title="">
         <span class="direction">
           Previous
         </span>
@@ -477,7 +453,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Open Network Linux - License
+              
             </div>
           </div>
         </div>
@@ -487,14 +463,14 @@
 
   <div class="next">
   
-      <a href="http://ocp.opennetlinux.org/wedge/" title="Open Network Linux - Getting Started With The Wedge">
+      <a href="http://ocp.opennetlinux.org/faq/" title="Open Network Linux - Frequently Asked Questions">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Open Network Linux - Getting Started With The Wedge
+              Open Network Linux - Frequently Asked Questions
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

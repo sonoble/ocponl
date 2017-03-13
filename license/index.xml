@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Licenses on Open Network Linux</title>
-    <link>http://sonoble.github.io/onlocp/license/</link>
+    <link>http://ocp.opennetlinux.org/license/</link>
     <description>Recent content in Licenses on Open Network Linux</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 19 Jul 2016 00:11:02 +0100</lastBuildDate>
-    <atom:link href="http://sonoble.github.io/onlocp/license/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ocp.opennetlinux.org/license/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Open Network Linux - License</title>
-      <link>http://sonoble.github.io/onlocp/license/</link>
+      <link>http://ocp.opennetlinux.org/license/</link>
       <pubDate>Tue, 19 Jul 2016 00:11:02 +0100</pubDate>
       
-      <guid>http://sonoble.github.io/onlocp/license/</guid>
+      <guid>http://ocp.opennetlinux.org/license/</guid>
       <description>&lt;p&gt;As ONL is based on Debian; the following licenses are imported:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://www.debian.org/legal/licenses/&#34;&gt;https://www.debian.org/legal/licenses/&lt;/a&gt;&lt;/p&gt;

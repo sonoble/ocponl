@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Getting-starteds on Open Network Linux</title>
-    <link>http://sonoble.github.io/onlocp/getting-started/</link>
+    <link>http://ocp.opennetlinux.org/getting-started/</link>
     <description>Recent content in Getting-starteds on Open Network Linux</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 19 Jul 2016 00:11:02 +0100</lastBuildDate>
-    <atom:link href="http://sonoble.github.io/onlocp/getting-started/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ocp.opennetlinux.org/getting-started/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Open Network Linux - Getting started</title>
-      <link>http://sonoble.github.io/onlocp/getting-started/</link>
+      <link>http://ocp.opennetlinux.org/getting-started/</link>
       <pubDate>Tue, 19 Jul 2016 00:11:02 +0100</pubDate>
       
-      <guid>http://sonoble.github.io/onlocp/getting-started/</guid>
+      <guid>http://ocp.opennetlinux.org/getting-started/</guid>
       <description>
 
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;

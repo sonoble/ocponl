@@ -8,18 +8,18 @@
   <head lang="en-us">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
-    <title>Open Network Linux Blog - Open Network Linux</title>
+    <title>Open Network Linux - Documentation - Boot Process - Open Network Linux</title>
     <meta name="generator" content="Hugo 0.16" />
 
     
     <meta name="description" content="A material design theme for documentations.">
     
-    <link rel="canonical" href="http://ocp.opennetlinux.org/blog/">
+    <link rel="canonical" href="http://ocp.opennetlinux.org/documentation/BootProcess/">
     
     <meta name="author" content="Digitalcraftsman">
     
 
-    <meta property="og:url" content="http://ocp.opennetlinux.org/blog/">
+    <meta property="og:url" content="http://ocp.opennetlinux.org/documentation/BootProcess/">
     <meta property="og:title" content="Open Network Linux">
     <meta property="og:image" content="http://ocp.opennetlinux.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="Open Network Linux">
@@ -96,7 +96,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Open Network Linux Blog
+        Open Network Linux - Documentation - Boot Proces
       </div>
     </div>
 
@@ -285,14 +285,11 @@
 
 
 
-<a class="current" title="Blog" href="http://ocp.opennetlinux.org/blog/">
+<a  title="Blog" href="http://ocp.opennetlinux.org/blog/">
 	
 	Blog
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
   
 </li>
@@ -366,89 +363,95 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Open Network Linux Blog </h1>
+			<h1>Open Network Linux - Documentation - Boot Process </h1>
 
 			
 
-<h2 id="june-28th-2016">June 28th, 2016:</h2>
+<h2 id="summary">Summary</h2>
 
-<p>Added support for Accton AS5512 (Nephos/MediaTek switch), updated disk partitioning and started providing OpenNSL packages.</p>
+<p>The high-level boot process for ONL is fairly straight forward, but there is a lot detail.</p>
 
-<h2 id="may-27th-2016">May 27th, 2016:</h2>
+<p>At high-level, there are three phases
+1. uBoot phase
+2. the ONL Loader phase
+3. The final ONL operating system</p>
 
-<p>Added support for Wedge 100: updated Wedge <a href="http://opennetlinux.org/binaries/latest-wedge-2.0.installer">purpose built image </a>to support Wedge 100 and provided <a href="http://opennetlinux.org/binaries/accton-wedge/onie-recovery-x86-64-facebook-wedge100-r0.iso">ONIE installer</a> for Wedge 100.</p>
+<h2 id="detailed-boot-process">Detailed Boot Process</h2>
 
-<h2 id="february-20th-2016">February 20th, 2016:</h2>
+<ol>
+<li>uBoot is the first level boot loader: <a href="http://www.denx.de/wiki/U-Boot">http://www.denx.de/wiki/U-Boot</a></li>
+<li>uBoot reads the &lsquo;nos_bootcmd&rsquo; environmental variable from flash and runs the contents
+(&lsquo;nos&rsquo; is Network Operating System)</li>
+<li>If $nos_boot_cmd returns, uBoot loads and runs ONIE (see below) to download the ONL installer and install the ONL loader
+a) The factory default $nos_boot_cmd is to a trival command that returned immediately, e.g., &lsquo;echo&rsquo;</li>
+<li>In normal operation, i.e., after ONIE has been run, $nos_boot_cmd is set to load and run the ONL Loader</li>
+<li>The ONL loader boots the Linux kernel (later, the &ldquo;boot kernel&rdquo;)</li>
+<li>The ONL loader decides which SWI to run based on the URL in the file /etc/SWI
+URL=<code>cat /etc/SWI</code></li>
+<li>The ONL loader runs <code>/bin/boot $URL</code></li>
+<li>The ONL loader retrieves the SWI file
+a) if the URL is remote (e.g., http://, ftp://, etc.), verify that there is a locally cached copy
+    of the SWI in /mnt/flash2 or if not, download it
+b) if the URL is local, verify that the device is accessible
+c) if the URL is a Zero Touch Networking (ZTN) URL, the execute the ZTN protocol to get the SWI (see below)</li>
+<li>The ONL loader reads the &lsquo;rootfs&rsquo; file out of the SWI and mounts it using overlayfs<a href="SWI contents described below">1</a></li>
+</ol>
 
-<p>Added support for Dell Z9100-ON and updated documentation on building to include example from <a href="https://opennetlinux.org/docs/build">clean Debian 8 install</a>.</p>
+<h2 id="partition-layout">Partition Layout</h2>
 
-<h2 id="january-31st-2016">January 31st, 2016:</h2>
+<p>Switches typically have two flash storage device: a smaller flash (e.g.,
+64MB flash) for booting and a larger, mass storage device (e.g., compact
+flash, 2+GB).</p>
 
-<p>Added binaries and updated documentation for the OCP OpenNetworkLinux repository. Binary links are named <a href="http://opennetlinux.org/binaries/latest-2.0-AMD64.installer">latest-2.0-AMD64.installer</a> and <a href="http://opennetlinux.org/binaries/latest-2.0-PPC.installer">latest-2.0-PPC.installer</a></p>
+<p>Smaller Boot Flash:</p>
 
-<h2 id="january-28th-2016">January 28th, 2016:</h2>
+<p>Partition 1: uBoot
+Partition 2: environmental variables (e.g., $nos_boot_cmd)
+Partition 3: ONIE
+Partition 4+: Free space (unused)</p>
 
-<p>OpenNetworkLinux has officially moved to the Open Compute Project github repository at <a href="http://github.com/opencomputeproject/OpenNetworkLinux">github.com/opencomputeproject/OpenNetworkLinux</a></p>
+<p>Mass Storage Device:</p>
 
-<h2 id="january-4th-2016">January 4th, 2016:</h2>
+<p>Partition 1: ONL loader kernel  &ndash; the format of this partition varies depending on what formats uBoot supports on the specific platform
+Partition 2: ONL Loader configuration files (mounts as &ldquo;/mnt/flash&rdquo; both during the loader and the main ONL phases)
+Partition 3: ONL SWitch Images (SWIs) partition (mounts as &ldquo;/mnt/flash2&rdquo; both during the loader and the main ONL phases)</p>
 
-<p>Added support for Accton 7712, 7716, 5812, 5812, Interface Masters Niagara 29xx, WNC sst1</p>
+<h2 id="onl-file-system-layout">ONL file system layout</h2>
 
-<h2 id="october-26th-2015">October 26th, 2015:</h2>
+<pre><code>root@onl-powerpc:/bin# df
+Filesystem     1K-blocks  Used Available Use% Mounted on
+rootfs             72040   176     71864   1% /
+devtmpfs            1024     0      1024   0% /dev
+none               72040   176     71864   1% /
+tmpfs              48028   148     47880   1% /run
+tmpfs               5120     0      5120   0% /run/lock
+/dev/sda2          71177     7     71170   1% /mnt/flash
+/dev/sda3        3791960 98172   3693788   3% /mnt/flash2
+tmpfs              96040     0     96040   0% /run/shm
+</code></pre>
 
-<p>Added support for Quanta LY6 and LY8 Rangeley based switches</p>
+<h2 id="swi">SWI</h2>
 
-<h2 id="october-2-2015">October 2, 2015:</h2>
+<p>Zip file contains:</p>
 
-<p>Added support for Edge-Core AS5712, fixes for persist.</p>
+<pre><code>$ unzip -l ONL-2.0.0_ONL-OS_2015-12-12.0252-ffce159_PPC.swi
+Archive:  ONL-2.0.0_ONL-OS_2015-12-12.0252-ffce159_PPC.swi
+Length      Date    Time    Name
+---------  ---------- -----   ----
+ 97968128  2015-12-15 20:20   rootfs-powerpc.sqsh
+ 1063      2015-12-15 20:20   manifest.json
+---------                     -------
+ 97969191                     2 files
+</code></pre>
 
-<h2 id="may-19-2015">May 19, 2015: </h2>
+<ol>
+<li>&lsquo;rootfs-$ARCH&rsquo;   : the root file system for the running ONL</li>
+<li>&lsquo;manifest.json&rsquo;  : a list of supported platforms, version information about ONL and the architecture</li>
+</ol>
 
-<p><a href="https://groups.google.com/forum/#!topic/opennetworklinux/DE43vdJrPh8">Added Support for Dell S6000-ON and Dell S4048-ON switches</a></p>
+<h2 id="footnotes">Footnotes</h2>
 
-<h2 id="march-12-2015">March 12, 2015:</h2>
-
-<p>Blog <a href="http://www.bigswitch.com/blog/2015/03/09/attention-world-the-network-is-now-open">Attention World: The Network is Now Open!</a></p>
-
-<h2 id="march-10-2015">March 10, 2015 </h2>
-
-<p><a href="http://www.bigswitch.com/press-releases/2015/03/10/open-compute-project-ocp-formally-accepts-open-network-linux-onl">Open Network Linux</a> formally accepted into <a href="http://opencompute.org/">Open Compute</a> as a Project</p>
-
-<h2 id="november-24-2014">November 24, 2014: </h2>
-
-<p><a href="https://groups.google.com/forum/#!searchin/opennetworklinux/open$20route$20cache/opennetworklinux/rgrYrYhzWJg/b-re3e-3Dx0J">Announce: Open Route Cache and ONL Platform code committed to ONL</a></p>
-
-<h2 id="may-8-2014">May 8, 2014:</h2>
-
-<p>Gave an ONL <a href="http://opennetlinux.org/OCP-May-ONL-final.pdf">Update</a> at Open Compute Engineering Workshop in San Antonio</p>
-
-<h2 id="april-16-2014">April 16, 2014:</h2>
-
-<p>Hosted Webinar on <a href="http://opennetlinux.org/community#brighttalk">Open Network Linux</a>, SDN, and the Indigo OpenFlow agent.</p>
-
-<h2 id="april-4-2014">April 4, 2014:</h2>
-
-<p>Added preliminary support for <a href="http://opennetlinux.org/hcl">Accton and DNI boxes</a>.</p>
-
-<h2 id="march-20-2014">March 20, 2014:</h2>
-
-<p>This website goes live!</p>
-
-<h2 id="march-3-2014">March 3, 2014:</h2>
-
-<p>Rob Sherwood presents ONL tutorial at Open Network Summit 2014: <a href="http://opennetlinux.org/community">Watch Video</a></p>
-
-<h2 id="january-27-2014">January 27, 2014:</h2>
-
-<p>Presentation and Demo at Open Compute Project: Read <a href="http://opennetlinux.org/OCP_2014_eng_workshop.pdf">slides</a> from talk.</p>
-
-<h2 id="january-26-2014">January 26, 2014:</h2>
-
-<p>Code released on <a href="http://github.com/opennetworklinux/ONL">github.com/opennetworklinux/ONL</a></p>
-
-<h2 id="november-2013">November, 2013:</h2>
-
-<p>Initial Proposal at Open Compute Project Engineering Workshop in San Antonio: Read <a href="http://opennetlinux.org/LinuxDistroOCP-November.pdf">slides</a></p>
+<p>[1] : <a href="https://kernel.googlesource.com/pub/scm/linux/kernel/git/mszeredi/vfs/+/overlayfs.current/Documentation/filesystems/overlayfs.txt">https://kernel.googlesource.com/pub/scm/linux/kernel/git/mszeredi/vfs/+/overlayfs.current/Documentation/filesystems/overlayfs.txt</a></p>
 
 
 			<aside class="copyright" role="note">
@@ -467,7 +470,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://ocp.opennetlinux.org/license/" title="Open Network Linux - License">
+      <a href="http://ocp.opennetlinux.org/getting-started/" title="Open Network Linux - Getting started">
         <span class="direction">
           Previous
         </span>
@@ -477,7 +480,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Open Network Linux - License
+              Open Network Linux - Getting started
             </div>
           </div>
         </div>
@@ -487,14 +490,14 @@
 
   <div class="next">
   
-      <a href="http://ocp.opennetlinux.org/wedge/" title="Open Network Linux - Getting Started With The Wedge">
+      <a href="http://ocp.opennetlinux.org/documentation/Building/" title="Open Network Linux - Documentation - Building">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Open Network Linux - Getting Started With The Wedge
+              Open Network Linux - Documentation - Building
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
